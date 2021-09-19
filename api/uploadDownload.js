@@ -34,10 +34,11 @@ const uploadFile = (fileName) => {
 function viewAlbum(albumName) {
   const params = {
     Bucket: BUCKET_NAME,
+    Prefix: albumPhotosKey,
   };
   var albumPhotosKey = encodeURIComponent(albumName) + "/";
   console.log(albumPhotosKey);
-  s3.listObjects(params, { Prefix: albumPhotosKey }, function(err, data) {
+  s3.listObjects(params, function(err, data) {
     //error with callback somewhere here ^
 
     if (err) {
@@ -46,12 +47,12 @@ function viewAlbum(albumName) {
     // 'this' references the AWS.Request instance that represents the response
     var href = this.request.httpRequest.endpoint.href;
     var bucketUrl = href + BUCKET_NAME + "/";
-    console.log(bucketUrl);
+    // console.log(bucketUrl, "bucketUrl");
 
     var photos = data.Contents.map(function(photo) {
       var photoKey = photo.Key; //photoKey is set to the name of the file?
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
-      console.log(photoKey, photoUrl);
+      console.log(photoKey, photoUrl, "photokey + photoUrl");
     });
   });
 }
