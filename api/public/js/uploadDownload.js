@@ -1,6 +1,12 @@
 const dotenv = require("dotenv");
 dotenv.config();
+const { MongoClient } = require("mongodb");
+const uri = `${process.env.URI}`;
+console.log(uri);
+const client = new MongoClient(uri);
+
 const ID = `${process.env.ID}`;
+console.log(ID);
 const SECRET = `${process.env.SECRET}`;
 const BUCKET_NAME = `${process.env.BUCKET_NAME}`;
 const fs = require("fs");
@@ -13,6 +19,8 @@ const s3 = new AWS.S3({
 });
 
 const uploadFile = (fileName) => {
+  //filename should include name of the path of the folder before the file.
+  //take all the file names and then add on 'folder/' to the start
   const fileContent = fs.readFileSync(fileName);
   const params = {
     Bucket: BUCKET_NAME,
@@ -53,7 +61,30 @@ function viewAlbum(albumName) {
       var photoKey = photo.Key; //photoKey is set to the name of the file?
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
       console.log(photoKey, photoUrl, "photokey + photoUrl");
+      //take the photoUrl and call Mongo to add it to the database
+      //set the ID manually to 1, 2, 3 etc
     });
   });
 }
-viewAlbum("Nature");
+
+async function main() {
+  try {
+    await client.connect();
+    await listDatabases(client);
+  } catch (e) {
+    console.log(e);
+  } finally {
+    await client.close();
+  }
+}
+
+main().catch(console.error);
+async function listDatabases(client) {
+  databasesList = await client
+    .db()
+    .admin()
+    .listDatabases();
+  console.log("Databases: ");
+  databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
+}
+// viewAlbum("Nature");
