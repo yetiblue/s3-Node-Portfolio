@@ -11,7 +11,8 @@ const SECRET = `${process.env.SECRET}`;
 const BUCKET_NAME = `${process.env.BUCKET_NAME}`;
 const fs = require("fs");
 const AWS = require("aws-sdk");
-const photoArray = ["test1.png", "test2.png", "test3.png", "test4.png"];
+// const photoArray = ["test1.png", "test2.png", "test3.png", "test4.png"];
+let photoArray = [];
 
 const s3 = new AWS.S3({
   accessKeyId: ID,
@@ -61,16 +62,29 @@ function viewAlbum(albumName) {
       var photoKey = photo.Key; //photoKey is set to the name of the file?
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
       console.log(photoKey, photoUrl, "photokey + photoUrl");
+      photoArray.push({ src: photoUrl });
+      main().catch(console.error);
+
       //take the photoUrl and call Mongo to add it to the database
       //set the ID manually to 1, 2, 3 etc
     });
   });
 }
-
+async function createObject(client, newObject) {
+  const result = await client
+    .db("portfolio_images")
+    .collection("images")
+    .insertOne(newObject);
+  console.log(`new object created with the following id: ${result.insertedId}`);
+}
 async function main() {
   try {
     await client.connect();
-    await listDatabases(client);
+    console.log(photoArray, "photoarray");
+    for (let i = 0; i < photoArray.length; i++) {
+      await createObject(client, photoArray[i]);
+    }
+    // await listDatabases(client);
   } catch (e) {
     console.log(e);
   } finally {
@@ -78,13 +92,12 @@ async function main() {
   }
 }
 
-main().catch(console.error);
-async function listDatabases(client) {
-  databasesList = await client
-    .db()
-    .admin()
-    .listDatabases();
-  console.log("Databases: ");
-  databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
-}
-// viewAlbum("Nature");
+// async function listDatabases(client) {
+//   databasesList = await client
+//     .db()
+//     .admin()
+//     .listDatabases();
+//   console.log("Databases: ");
+//   databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
+// }
+viewAlbum("Nature");
