@@ -63,11 +63,8 @@ function viewAlbum(albumName) {
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
       console.log(photoKey, photoUrl, "photokey + photoUrl");
       photoArray.push({ src: photoUrl });
-      main().catch(console.error);
-
-      //take the photoUrl and call Mongo to add it to the database
-      //set the ID manually to 1, 2, 3 etc
     });
+    main().catch(console.error);
   });
 }
 async function createObject(client, newObject) {
@@ -80,24 +77,16 @@ async function createObject(client, newObject) {
 async function main() {
   try {
     await client.connect();
-    console.log(photoArray, "photoarray");
+    photoArray.splice(0, 1); //the uri for the object instead of image is included as the first item
+    console.log(photoArray);
     for (let i = 0; i < photoArray.length; i++) {
+      console.log(photoArray[i]);
       await createObject(client, photoArray[i]);
     }
-    // await listDatabases(client);
   } catch (e) {
     console.log(e);
   } finally {
     await client.close();
   }
 }
-
-// async function listDatabases(client) {
-//   databasesList = await client
-//     .db()
-//     .admin()
-//     .listDatabases();
-//   console.log("Databases: ");
-//   databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
-// }
 viewAlbum("Nature");
