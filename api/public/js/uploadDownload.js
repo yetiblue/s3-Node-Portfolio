@@ -1,11 +1,18 @@
 const dotenv = require("dotenv");
 dotenv.config();
+const { MongoClient } = require("mongodb");
+const uri = `${process.env.URI}`;
+console.log(uri);
+const client = new MongoClient(uri);
+
 const ID = `${process.env.ID}`;
+console.log(ID);
 const SECRET = `${process.env.SECRET}`;
 const BUCKET_NAME = `${process.env.BUCKET_NAME}`;
 const fs = require("fs");
 const AWS = require("aws-sdk");
-const photoArray = ["test1.png", "test2.png", "test3.png", "test4.png"];
+// const photoArray = ["test1.png", "test2.png", "test3.png", "test4.png"];
+let photoArray = [];
 
 const s3 = new AWS.S3({
   accessKeyId: ID,
@@ -13,6 +20,8 @@ const s3 = new AWS.S3({
 });
 
 const uploadFile = (fileName) => {
+  //filename should include name of the path of the folder before the file.
+  //take all the file names and then add on 'folder/' to the start
   const fileContent = fs.readFileSync(fileName);
   const params = {
     Bucket: BUCKET_NAME,
@@ -53,7 +62,31 @@ function viewAlbum(albumName) {
       var photoKey = photo.Key; //photoKey is set to the name of the file?
       var photoUrl = bucketUrl + encodeURIComponent(photoKey);
       console.log(photoKey, photoUrl, "photokey + photoUrl");
+      photoArray.push({ src: photoUrl });
     });
+    main().catch(console.error);
   });
+}
+async function createObject(client, newObject) {
+  const result = await client
+    .db("portfolio_images")
+    .collection("images")
+    .insertOne(newObject);
+  console.log(`new object created with the following id: ${result.insertedId}`);
+}
+async function main() {
+  try {
+    await client.connect();
+    photoArray.splice(0, 1); //the uri for the object instead of image is included as the first item
+    console.log(photoArray);
+    for (let i = 0; i < photoArray.length; i++) {
+      console.log(photoArray[i]);
+      await createObject(client, photoArray[i]);
+    }
+  } catch (e) {
+    console.log(e);
+  } finally {
+    await client.close();
+  }
 }
 viewAlbum("Nature");
