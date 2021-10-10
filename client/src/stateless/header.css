@@ -1,7 +1,106 @@
 .header {
   position: fixed;
-  background: #d6e9fe;
+  background: black;
   width: 100%;
   display: flex;
   padding: 3em;
+}
+.test {
+  border: 1px solid red;
+}
+.header__site-title {
+  padding-left: 4em;
+  color: #fff;
+  border: 1px solid white;
+  max-width: 100%;
+}
+.navbar {
+  color: #fff;
+  /* margin-left: 20em; */
+  max-width: 100%;
+  /* border: 1px solid white; */
+}
+.navbar_list {
+  list-style-type: none;
+  padding-top: 1.2em;
+}
+.navbar_link {
+  color: #fff;
+  padding: 1em;
+}
+@media (min-width: 1151px) and (max-width: 2000px) {
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
+@media (min-width: 0px) and (max-width: 960px) {
+  .col-mobile-1 {
+    width: 8.33%;
+  }
+  .col-mobile-2 {
+    width: 16.66%;
+  }
+  .col-mobile-3 {
+    width: 25%;
+  }
+  .col-mobile-4 {
+    width: 33.33%;
+  }
+  .col-mobile-5 {
+    width: 41.66%;
+  }
+  .col-mobile-6 {
+    width: 50%;
+  }
+  .col-mobile-7 {
+    width: 58.33%;
+  }
+  .col-mobile-8 {
+    width: 66.66%;
+  }
+  .col-mobile-9 {
+    width: 75%;
+  }
+  .col-mobile-10 {
+    width: 83.33%;
+  }
+  .col-mobile-11 {
+    width: 91.66%;
+  }
+  .col-mobile-12 {
+    width: 100%;
+  }
 }
