@@ -9,14 +9,14 @@ function Header() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </MetaTags>
       <div className="header col-12">
-        <div className="col-6 header__site-title">
+        <div className="header__site-title">
           <h1>Timmy Zhou</h1>
         </div>
-        <div className="hamburger col-0">
-          <button>☰ </button>
+        <div className="hamburger">
+          <button className="drawerBtn">☰ </button>
         </div>
 
-        <div className="navbar col-5">
+        <div className="navbar">
           <ul className="navbar_list">
             <a className="navbar_link" href="">
               Home

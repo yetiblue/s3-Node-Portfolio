@@ -1,24 +1,27 @@
 .header {
-  position: fixed;
+  /* position: fixed; */
   background: black;
-  width: 100%;
+  /* max-width: 100%; */
   display: flex;
-  padding: 3em;
-  border: 1px solid red;
+  /* padding: 3em; */
+  /* border: 1px solid red; */
 }
 .test {
   border: 1px solid red;
 }
 .header__site-title {
-  padding-left: 4em;
+  /* padding-left: 4em; */
   color: #fff;
-  border: 1px solid white;
-  max-width: 100%;
+  flex: 8 1 auto;
+  /* border: 1px solid white; */
+  /* max-width: 100%; */
 }
+
 .navbar {
-  color: #fff;
+  /* color: #fff;
   margin-left: 20em;
-  max-width: 100%;
+  max-width: 100%; */
+  flex: 1 1 auto;
 }
 .navbar_li {
   display: inline;
@@ -28,6 +31,8 @@
   display: flex;
   list-style-type: none;
   margin-top: 1.2em;
+  flex: 1 1 auto;
+  border: 1px solid white;
 }
 .navbar_link {
   color: #fff;
@@ -81,17 +86,25 @@
 @media (min-width: 0px) and (max-width: 960px) {
   .hamburger {
     display: block;
-    padding: 3em;
-    margin-left: 5em;
-    border: 1px solid white;
+    padding-left: 5em;
+    padding-top: 2em;
+    /* margin-left: 5em; */
+    flex: 1 1 auto;
+    /* border: 1px solid white; */
+  }
+  .drawerBtn {
+    background: black;
+    color: white;
   }
   .navbar {
     width: 0%;
   }
 
   .header__site-title {
-    padding-left: 1em;
-    width: 66.66%;
+    padding-left: 0em;
+    /* width: 66.66%; */
+    flex: 13 1 auto;
+    font-size: 14px;
   }
   .col-0 {
     width: 0%;
