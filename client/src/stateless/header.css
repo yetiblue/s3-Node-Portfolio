@@ -1,5 +1,6 @@
 .header {
   /* position: fixed; */
+  position: relative;
   background: black;
   /* max-width: 100%; */
   display: flex;
@@ -27,16 +28,19 @@
   display: inline;
   border: 1px solid white;
 }
-.navbar_list {
+.navbar__list {
   display: flex;
   list-style-type: none;
   margin-top: 1.2em;
   flex: 1 1 auto;
   border: 1px solid white;
 }
-.navbar_link {
+.navbar__link {
   color: #fff;
   padding: 1em;
+}
+.sidebar {
+  display: none;
 }
 .hamburger {
   display: none;
@@ -84,6 +88,45 @@
   }
 }
 @media (min-width: 0px) and (max-width: 960px) {
+  .sidebar-show {
+    background-color: black;
+    color: #fff;
+    position: absolute;
+    z-index: 2;
+    display: block;
+    /* border: 1px solid white; */
+    left: 60%;
+    width: 40%;
+    height: 100%;
+  }
+  .sidebar__ul {
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap;
+    border: 1px solid white;
+    align-content: space-between;
+    height: 60%;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .sidebar__li {
+    margin-top: 2em;
+  }
+  .sidebar__button {
+    border: 1px solid white;
+    background-color: black;
+    color: #fff;
+    margin-left: 4.5em;
+    padding: 0.5em;
+    font-size: 1em;
+  }
+  .sidebar__link {
+    font-size: 1.5em;
+    color: #fff;
+    width: 100%;
+    text-decoration: none;
+    /* border: 1px solid white; */
+  }
   .hamburger {
     display: block;
     padding-left: 5em;
