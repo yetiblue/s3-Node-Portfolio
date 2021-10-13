@@ -13,6 +13,7 @@ class Header extends React.Component {
   }
   render() {
     let sidebar = this.state.showSidebar ? "sidebar" : "sidebar-show";
+    console.log(sidebar);
     return (
       <div className="wrapper">
         <MetaTags>
@@ -21,11 +22,11 @@ class Header extends React.Component {
             content="width=device-width, initial-scale=1.0"
           />
         </MetaTags>
-        <div className="sidebar sidebar-show">
+        <div className={sidebar}>
           <ul className="sidebar__ul">
             <li className="sidebar__li">
               <button
-                // onClick={this.showSidebar.bind(this)}
+                onClick={this.openSidebar.bind(this)}
                 className="sidebar__button"
               >
                 X
@@ -54,7 +55,9 @@ class Header extends React.Component {
             <h1>Sample Text</h1>
           </div>
           <div className="hamburger">
-            <button className="drawerBtn">☰ </button>
+            <button onClick={this.openSidebar.bind(this)} className="drawerBtn">
+              ☰
+            </button>
           </div>
 
           <div className="navbar">
