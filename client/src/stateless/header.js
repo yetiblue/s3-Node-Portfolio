@@ -2,6 +2,7 @@
 import "./header.css";
 import MetaTags from "react-meta-tags";
 import React from "react";
+import SocialButtons from "./socialButtons.js";
 
 class Header extends React.Component {
   constructor() {
@@ -48,6 +49,7 @@ class Header extends React.Component {
               </a>
             </li>
           </ul>
+          <SocialButtons className="sidebar__component" />
         </div>
         <div className="header col-12">
           <div className="header__site-title">

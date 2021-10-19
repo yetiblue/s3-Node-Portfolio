@@ -1,0 +1,14 @@
+.social-media {
+  display: flex;
+  width: 30px;
+  background-color: white;
+}
+.social-media__buttons {
+  flex: 1 1 auto;
+  background-color: white;
+}
+.social-media__image {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+}

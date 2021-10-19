@@ -97,7 +97,7 @@
     display: block;
     /* border: 1px solid white; */
     left: 60%;
-    width: 40%;
+    width: 45%;
     height: 100%;
   }
   .sidebar__ul {
@@ -117,7 +117,7 @@
     border: 1px solid white;
     background-color: black;
     color: #fff;
-    margin-left: 4.5em;
+    margin-left: 3.5em;
     padding: 0.5em;
     font-size: 1em;
   }
