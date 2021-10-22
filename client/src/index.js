@@ -1,12 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import App from "./App.js";
 import Header from "./stateless/header";
+import PhotoGrid from "./stateless/photoGrid.js";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header />
+    <div className="app">
+      <Header />
+      {/* <App /> */}
+      <PhotoGrid />
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );

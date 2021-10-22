@@ -7,7 +7,8 @@ import SocialButtons from "./socialButtons.js";
 class Header extends React.Component {
   constructor() {
     super();
-    this.state = { showSidebar: false };
+    this.state = { showSidebar: true }; //for some reason, shodeSidebar is showing
+    //the opposite result upon page load
   }
   openSidebar() {
     this.setState({ showSidebar: !this.state.showSidebar });
@@ -49,11 +50,9 @@ class Header extends React.Component {
               </a>
             </li>
           </ul>
-          <SocialButtons className="sidebar__component" />
         </div>
-        <div className="header col-12">
+        <div className="header">
           <div className="header__site-title">
-            {/* <h1>Timmy Zhou</h1> */}
             <h1>Sample Text</h1>
           </div>
           <div className="hamburger">
@@ -63,6 +62,7 @@ class Header extends React.Component {
           </div>
 
           <div className="navbar">
+            {/* something here is bumping out the page */}
             <ul className="navbar__list">
               <a className="navbar__link" href="">
                 Home
@@ -77,8 +77,6 @@ class Header extends React.Component {
               </a>
             </ul>
           </div>
-
-          {/* <button className="openbtn">☰ Open Sidebar</button> */}
         </div>
       </div>
     );
