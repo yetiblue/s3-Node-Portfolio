@@ -8,8 +8,11 @@ body {
   /* overflow: hidden; */
   /* position: relative; */
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.app {
+  /* background-color: black; */
+  overflow: hidden;
+}
+.grandParent {
+  position: relative;
+  overflow: hidden;
 }
