@@ -1,3 +1,6 @@
+/* body {
+  overflow: hidden;
+} */
 .photoWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -14,10 +17,9 @@
   list-style-type: none;
 }
 
-/* li:last-child {
-  // There's no science in using "10" here. In all my testing, this delivered the best results.
+.photoWrapper__li:last-child {
   flex-grow: 10;
-} */
+}
 
 img {
   max-height: 100%;

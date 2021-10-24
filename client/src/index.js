@@ -2,13 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App.js";
-import GalleryPage from "./stateful/galleryPage.js";
+import Header from "./stateful/header.js";
+import PhotoGrid from "./stateless/photoGrid.js";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <div className="app">
-      <GalleryPage />
+      <Header />
+      <PhotoGrid />
     </div>
   </React.StrictMode>,
   document.getElementById("root")

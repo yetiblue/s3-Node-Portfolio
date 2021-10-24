@@ -31,14 +31,8 @@ function photoGrid() {
             loading="lazy"
           />
         </li>
-        {/* <li className="photoWrapper__li">
-          <img
-            src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05513_gfbiwi.jpg"
-            alt="Sara on a red bike"
-            loading="lazy"
-          />
-        </li> */}
-        <li>
+
+        <li className="photoWrapper__li">
           <img
             src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05586_oj8jfo.jpg"
             alt="Portrait of Justin Pervorse"

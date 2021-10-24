@@ -2,20 +2,25 @@
 import "./header.css";
 import MetaTags from "react-meta-tags";
 import React from "react";
-import SocialButtons from "./socialButtons.js";
+// import SocialButtons from "../stateless/socialButtons.js";
 
 class Header extends React.Component {
   constructor() {
     super();
-    this.state = { showSidebar: true }; //for some reason, shodeSidebar is showing
-    //the opposite result upon page load
+    this.state = { showSidebar: false };
   }
-  openSidebar() {
-    this.setState({ showSidebar: !this.state.showSidebar });
+  async openSidebar() {
+    await this.setState({ showSidebar: !this.state.showSidebar }); //setState makes a request and isn't instant
+
+    if (this.state.showSidebar === true) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
   }
   render() {
-    let sidebar = this.state.showSidebar ? "sidebar" : "sidebar-show";
-    console.log(sidebar);
+    let sidebar = this.state.showSidebar ? "sidebar-show" : "sidebar";
+
     return (
       <div className="wrapper">
         <MetaTags>
