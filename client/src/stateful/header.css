@@ -6,16 +6,15 @@
   /* position: fixed; */
   box-sizing: border-box;
   position: relative;
-  background: black;
+  background: white;
   width: 100%;
   display: flex;
   padding: 3em;
-  border: 1px solid red;
 }
 
 .header__site-title {
   padding-left: 4em;
-  color: #fff;
+  color: black;
   flex: 7 1 auto;
   /* border: 1px solid white; */
   /* max-width: 100%; */
@@ -39,7 +38,7 @@
   /* border: 1px solid white; */
 }
 .navbar__link {
-  color: #fff;
+  color: black;
   padding: 1em;
 }
 .sidebar {
@@ -144,7 +143,7 @@
   .hamburger {
     display: block;
     padding-left: 4em;
-    padding-top: 2em;
+    padding-top: 1.7em;
     /* margin-left: 5em; */
     flex: 1 1 auto;
     /* border: 1px solid white; */
@@ -179,9 +178,89 @@
     padding-top: 0.3em;
     /* width: 66.66%; */
     flex: 13 1 auto;
+    font-size: 13px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar-show {
+    background-color: black;
+    color: #fff;
+    position: absolute;
+    z-index: 2;
+    display: block;
+    /* border: 1px solid white; */
+    left: 0;
+    width: 100%;
+    height: 110%;
+  }
+  .sidebar__ul {
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap;
+    /* border: 1px solid white; */
+    align-content: space-between;
+    height: 60%;
+    margin-left: 22.2em;
+    width: 20%;
+    padding-left: 0;
+    padding-top: 0;
+    margin-top: 2em;
+  }
+  .sidebar__li {
+    margin-top: 2em;
+  }
+  .sidebar__button {
+    border: 1px solid white;
+    background-color: black;
+    color: #fff;
+    margin-left: 11.5em;
+    margin-top: 0.5em;
+
+    padding: 0.5em;
+    font-size: 1.5em;
+  }
+  .sidebar__link {
+    font-size: 2em;
+    color: #fff;
+    width: 100%;
+    text-decoration: none;
+    /* border: 1px solid white; */
+  }
+  .hamburger {
+    display: block;
+    padding-left: 8em;
+    padding-top: 2em;
+    /* margin-left: 5em; */
+    flex: 1 1 auto;
+    /* border: 1px solid white; */
+  }
+  .drawerBtn {
+    background: black;
+    color: white;
+  }
+  .navbar__list {
+    display: none;
+
+    /* border: 1px solid white; */
+  }
+  .navbar__link {
+    /* width: 0%;
+    padding: 0; */
+    display: none;
+  }
+  .header {
+    padding: 1em;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .header__site-title {
+    padding-left: 3em;
+    padding-top: 0.3em;
+    /* width: 66.66%; */
+    flex: 13 1 auto;
     font-size: 14px;
   }
 }
-/* @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
-   
-} */
