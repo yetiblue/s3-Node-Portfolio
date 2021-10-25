@@ -1,4 +1,4 @@
-import "./photoGrid.css";
+import "./PhotoGrid.css";
 function photoGrid() {
   return (
     <div className="wrapper">

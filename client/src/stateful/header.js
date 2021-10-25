@@ -2,6 +2,8 @@
 import "./header.css";
 import MetaTags from "react-meta-tags";
 import React from "react";
+import About from "../stateless/About.js";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import SocialButtons from "../stateless/socialButtons.js";
 
 class Header extends React.Component {
@@ -29,33 +31,45 @@ class Header extends React.Component {
             content="width=device-width, initial-scale=1.0"
           />
         </MetaTags>
+
         <div className={sidebar}>
-          <ul className="sidebar__ul">
-            <li className="sidebar__li">
-              <button
-                onClick={this.openSidebar.bind(this)}
-                className="sidebar__button"
-              >
-                X
-              </button>
-            </li>
-            <li className="sidebar__li">
-              <a className="sidebar__link" href="">
-                Home
-              </a>
-            </li>
-            <li className="sidebar__li">
-              <a className="sidebar__link" href="">
-                Blog
-              </a>
-            </li>
-            <li className="sidebar__li">
-              <a className="sidebar__link" href="">
-                About
-              </a>
-            </li>
-          </ul>
+          {" "}
+          <Router>
+            <ul className="sidebar__ul">
+              <li className="sidebar__li">
+                <button
+                  onClick={this.openSidebar.bind(this)}
+                  className="sidebar__button"
+                >
+                  X
+                </button>
+              </li>
+              <li className="sidebar__li">
+                {/* <a className="sidebar__link" href=""> */}
+                <Link className="sidebar__link" to="/about">
+                  About
+                </Link>
+                {/* </a> */}
+              </li>
+              <li className="sidebar__li">
+                <Link className="sidebar__link" to="/work">
+                  Work
+                </Link>
+              </li>
+              <li className="sidebar__li">
+                <Link className="sidebar__link" to="/">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+            <Switch>
+              <Route path="/about">
+                <About />
+              </Route>
+            </Switch>
+          </Router>
         </div>
+
         <div className="header">
           <div className="header__site-title">
             <h1>Sample Text</h1>
@@ -65,23 +79,29 @@ class Header extends React.Component {
               ☰
             </button>
           </div>
+          <Router>
+            <div className="navbar">
+              {/* something here is bumping out the page */}
+              <ul className="navbar__list">
+                <Link className="navbar__link" to="/about">
+                  About
+                </Link>
 
-          <div className="navbar">
-            {/* something here is bumping out the page */}
-            <ul className="navbar__list">
-              <a className="navbar__link" href="">
-                Home
-              </a>
+                <Link className="navbar__link" to="/work">
+                  Work
+                </Link>
 
-              <a className="navbar__link" href="">
-                Blog
-              </a>
-
-              <a className="navbar__link" href="">
-                About
-              </a>
-            </ul>
-          </div>
+                <Link className="navbar__link" to="/">
+                  Contact
+                </Link>
+              </ul>
+            </div>
+            <Switch>
+              <Route path="/about">
+                <About />
+              </Route>
+            </Switch>
+          </Router>
         </div>
       </div>
     );
