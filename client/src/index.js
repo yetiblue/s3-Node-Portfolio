@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.js";
 // import GalleryPage from "./pages/GalleryPage.js";
 import Header from "./stateful/header.js";
+import PhotoGrid from "./stateless/PhotoGrid.js";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(

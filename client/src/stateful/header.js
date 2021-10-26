@@ -3,7 +3,13 @@ import "./header.css";
 import MetaTags from "react-meta-tags";
 import React from "react";
 import About from "../stateless/About.js";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  withRouter,
+} from "react-router-dom";
 // import SocialButtons from "../stateless/socialButtons.js";
 
 class Header extends React.Component {
@@ -63,8 +69,8 @@ class Header extends React.Component {
               </li>
             </ul>
             <Switch>
-              <Route path="/about">
-                <About />
+              <Route exact path="/about" component={withRouter(About)}>
+                {/* <About /> */}
               </Route>
             </Switch>
           </Router>
