@@ -40,40 +40,33 @@ class Header extends React.Component {
 
         <div className={sidebar}>
           {" "}
-          <Router>
-            <ul className="sidebar__ul">
-              <li className="sidebar__li">
-                <button
-                  onClick={this.openSidebar.bind(this)}
-                  className="sidebar__button"
-                >
-                  X
-                </button>
-              </li>
-              <li className="sidebar__li">
-                {/* <a className="sidebar__link" href=""> */}
-                <Link className="sidebar__link" to="/about">
-                  About
-                </Link>
-                {/* </a> */}
-              </li>
-              <li className="sidebar__li">
-                <Link className="sidebar__link" to="/work">
-                  Work
-                </Link>
-              </li>
-              <li className="sidebar__li">
-                <Link className="sidebar__link" to="/">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-            <Switch>
-              <Route exact path="/about" component={withRouter(About)}>
-                {/* <About /> */}
-              </Route>
-            </Switch>
-          </Router>
+          <ul className="sidebar__ul">
+            <li className="sidebar__li">
+              <button
+                onClick={this.openSidebar.bind(this)}
+                className="sidebar__button"
+              >
+                X
+              </button>
+            </li>
+            <li className="sidebar__li">
+              {/* <a className="sidebar__link" href=""> */}
+              <Link className="sidebar__link" to="/about">
+                About
+              </Link>
+              {/* </a> */}
+            </li>
+            <li className="sidebar__li">
+              <Link className="sidebar__link" to="/work">
+                Work
+              </Link>
+            </li>
+            <li className="sidebar__li">
+              <Link className="sidebar__link" to="/">
+                Contact
+              </Link>
+            </li>
+          </ul>
         </div>
 
         <div className="header">
@@ -85,29 +78,28 @@ class Header extends React.Component {
               ☰
             </button>
           </div>
-          <Router>
-            <div className="navbar">
-              {/* something here is bumping out the page */}
-              <ul className="navbar__list">
-                <Link className="navbar__link" to="/about">
-                  About
-                </Link>
 
-                <Link className="navbar__link" to="/work">
-                  Work
-                </Link>
+          <div className="navbar">
+            {/* something here is bumping out the page */}
+            <ul className="navbar__list">
+              <Link className="navbar__link" to="/about">
+                About
+              </Link>
 
-                <Link className="navbar__link" to="/">
-                  Contact
-                </Link>
-              </ul>
-            </div>
-            <Switch>
+              <Link className="navbar__link" to="/work">
+                Work
+              </Link>
+
+              <Link className="navbar__link" to="/">
+                Contact
+              </Link>
+            </ul>
+          </div>
+          {/* <Switch>
               <Route path="/about">
                 <About />
               </Route>
-            </Switch>
-          </Router>
+            </Switch> */}
         </div>
       </div>
     );

@@ -1,4 +1,5 @@
 import "./PhotoGrid.css";
+
 function photoGrid() {
   const photos = [
     {
@@ -30,7 +31,6 @@ function photoGrid() {
   return (
     <div className="wrapper">
       <ul className="photoWrapper">
-        {" "}
         {listPhotos}
         {/* <li className="photoWrapper__li">
           <img
