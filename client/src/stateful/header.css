@@ -40,6 +40,8 @@
 .navbar__link {
   color: black;
   padding: 1em;
+  list-style: none;
+  text-decoration: none;
 }
 .sidebar {
   display: none;
@@ -48,6 +50,33 @@
   display: none;
 }
 .hamburger {
+  display: none;
+}
+.dropdown {
+  display: flex;
+  flex-direction: column;
+}
+.dropdown__item {
+  list-style: none;
+  color: #5d6063;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+.dropdown__hover {
+  color: black;
+  padding: 1em;
+  list-style: none;
+  text-decoration: none;
+}
+.dropdown__hover:hover .dropdown__li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+.dropdown__li {
   display: none;
 }
 

@@ -1,31 +1,12 @@
 import "./PhotoGrid.css";
 
-function photoGrid() {
-  const photos = [
-    {
-      id: 1,
-      src:
-        "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
-    },
-    {
-      id: 2,
-      src:
-        "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
-    },
-    {
-      id: 3,
-      src:
-        "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
-    },
-    {
-      id: 1,
-      src:
-        "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
-    },
-  ];
-  const listPhotos = photos.map((photo) => (
+function photoGrid(props) {
+  // const photos = [
+  // ];
+  const listPhotos = props.photoList.map((photo) => (
     <li className="photoWrapper__li">
       <img src={photo.src} />
+      <h6> Sample TExt </h6>
     </li>
   ));
   return (
