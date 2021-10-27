@@ -1,9 +1,38 @@
-import "./photoGrid.css";
+import "./PhotoGrid.css";
+
 function photoGrid() {
+  const photos = [
+    {
+      id: 1,
+      src:
+        "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
+    },
+    {
+      id: 2,
+      src:
+        "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
+    },
+    {
+      id: 3,
+      src:
+        "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
+    },
+    {
+      id: 1,
+      src:
+        "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
+    },
+  ];
+  const listPhotos = photos.map((photo) => (
+    <li className="photoWrapper__li">
+      <img src={photo.src} />
+    </li>
+  ));
   return (
     <div className="wrapper">
       <ul className="photoWrapper">
-        <li className="photoWrapper__li">
+        {listPhotos}
+        {/* <li className="photoWrapper__li">
           <img
             src="https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg"
             alt="A Toyota Previa covered in graffiti"
@@ -38,7 +67,7 @@ function photoGrid() {
             alt="Portrait of Justin Pervorse"
             loading="lazy"
           />
-        </li>
+        </li> */}
       </ul>
     </div>
   );

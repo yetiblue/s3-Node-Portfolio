@@ -1,16 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App.js";
+import About from "./stateless/About.js";
+// import GalleryPage from "./pages/GalleryPage.js";
 import Header from "./stateful/header.js";
-import PhotoGrid from "./stateless/photoGrid.js";
+import PhotoGrid from "./stateless/PhotoGrid.js";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <div className="app">
-      <Header />
-      <PhotoGrid />
+      <Router>
+        <Route exact path="/" component={Header} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/work" component={About} />
+      </Router>
     </div>
   </React.StrictMode>,
   document.getElementById("root")
