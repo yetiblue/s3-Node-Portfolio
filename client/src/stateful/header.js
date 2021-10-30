@@ -54,25 +54,24 @@ class Header extends React.Component {
               <Link className="sidebar__link" to="/about">
                 About
               </Link>
-              {/* </a> */}
             </li>
-            {/* <li className="sidebar__li">
-              <span className="sidebar__link" to="/work">
-                Work
-              </span>
-            </li>
-            <li>
-              <a href="#">Photography</a>
-            </li>
-            <li>
-              <a href="#">Generative Art</a>
-            </li> */}
 
             <li className="sidebar__li">
               <Link className="sidebar__link" to="/">
                 Contact
               </Link>
             </li>
+            <ul className="dropdown__hover" to="/work">
+              Work ▾
+              <li className="dropdown__li">
+                <Link className="dropdown__item" to="/photography">
+                  Photography
+                </Link>
+                <Link className="dropdown__item" to="/generative">
+                  Generative Art
+                </Link>
+              </li>
+            </ul>
           </ul>
         </div>
 
