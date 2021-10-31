@@ -10,17 +10,17 @@ class GalleryPage extends React.Component {
         {
           id: 1,
           src:
-            "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/Nature/test.jpg",
         },
         {
           id: 2,
           src:
-            "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/Nature%2Ftest4.png",
         },
         {
           id: 3,
           src:
-            "https://res.cloudinary.com/css-tricks/image/upload/f_auto,q_auto/v1568814785/photostream-photos/DSC05466_kwlv0n.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/Nature%2Ftest3.png",
         },
         {
           id: 1,
