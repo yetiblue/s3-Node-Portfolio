@@ -1,4 +1,4 @@
-// import logo from "./logo.svg";
+import axios from "axios";
 import "./header.css";
 import MetaTags from "react-meta-tags";
 import React from "react";
@@ -16,6 +16,11 @@ class Header extends React.Component {
   constructor() {
     super();
     this.state = { showSidebar: false };
+  }
+  async componentDidMount() {
+    await axios.get(`http://localhost:4000/route1/`);
+    let response = response.data;
+    console.log("response");
   }
   async openSidebar() {
     await this.setState({ showSidebar: !this.state.showSidebar }); //setState makes a request and isn't instant
