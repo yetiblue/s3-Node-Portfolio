@@ -15,12 +15,15 @@ import {
 class Header extends React.Component {
   constructor() {
     super();
-    this.state = { showSidebar: false };
+    this.state = { showSidebar: false, serverResponse: "" };
   }
   async componentDidMount() {
-    await axios.get(`http://localhost:4000/route1/`);
-    let response = response.data;
-    console.log("response");
+    try {
+      const response = await axios.get(`http://localhost:4000/route1/`);
+      console.log(response.data);
+      const serverStuff = response.data;
+      this.setState({ serverResponse: serverStuff });
+    } catch {}
   }
   async openSidebar() {
     await this.setState({ showSidebar: !this.state.showSidebar }); //setState makes a request and isn't instant
