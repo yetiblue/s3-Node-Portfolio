@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
 const port = 4000;
+const cors = require("cors");
+app.use(
+  cors({
+    origin: `http://localhost:3000`,
+  })
+);
 app.use(express.static("/client/public"));
 app.use(express.static("public")); //for s3 JS files
 
@@ -15,6 +21,7 @@ app.get("/", (req, res) => {
     }
   });
 });
+app.get("/route1", (req, res) => res.send("Hello from route 1"));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

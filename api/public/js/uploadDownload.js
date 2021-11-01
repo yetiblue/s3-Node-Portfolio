@@ -8,7 +8,8 @@ const client = new MongoClient(uri);
 const ID = `${process.env.ID}`;
 console.log(ID);
 const SECRET = `${process.env.SECRET}`;
-const BUCKET_NAME = `${process.env.BUCKET_NAME}`;
+const BUCKET_NAME = `${process.env.BUCKET_NAME}`; //used to access bucket for files
+const NEW_BUCKET_NAME = `${process.env.UPDATED_BUCKET_NAME}`; //used to create new version of s3 object URLs
 const fs = require("fs");
 const AWS = require("aws-sdk");
 // const photoArray = ["test1.png", "test2.png", "test3.png", "test4.png"];
@@ -56,11 +57,12 @@ function viewAlbum(albumName) {
     // 'this' references the AWS.Request instance that represents the response
     var href = this.request.httpRequest.endpoint.href;
     var bucketUrl = href + BUCKET_NAME + "/";
+    var newBucketUrl = NEW_BUCKET_NAME + "/";
     // console.log(bucketUrl, "bucketUrl");
 
     var photos = data.Contents.map(function(photo) {
       var photoKey = photo.Key; //photoKey is set to the name of the file?
-      var photoUrl = bucketUrl + encodeURIComponent(photoKey);
+      var photoUrl = newBucketUrl + encodeURIComponent(photoKey);
       console.log(photoKey, photoUrl, "photokey + photoUrl");
       photoArray.push({ src: photoUrl });
     });
