@@ -14,4 +14,16 @@ const s3 = new AWS.S3({
   secretAccessKey: SECRET,
 });
 
-module.exports = { ID, SECRET };
+module.exports = {
+  ID,
+  SECRET,
+  dotenv,
+  MongoClient,
+  uri,
+  client,
+  BUCKET_NAME,
+  NEW_BUCKET_NAME,
+  fs,
+  AWS,
+  s3,
+};
