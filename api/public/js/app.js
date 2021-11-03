@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const port = 4000;
 const cors = require("cors");
+const importID = require("./constants.js");
+console.log(importID.SECRET);
+const uri = `${process.env.URI}`;
 app.use(
   cors({
     origin: `http://localhost:3000`,

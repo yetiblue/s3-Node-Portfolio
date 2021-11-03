@@ -19,7 +19,7 @@ const s3 = new AWS.S3({
   accessKeyId: ID,
   secretAccessKey: SECRET,
 });
-
+const phrase = "Is this thing on?";
 const uploadFile = (fileName) => {
   //filename should include name of the path of the folder before the file.
   //take all the file names and then add on 'folder/' to the start
@@ -92,3 +92,37 @@ async function main() {
   }
 }
 viewAlbum("Nature");
+
+module.exports = {
+  testImport: function() {
+    return phrase;
+  },
+  viewAlbum: function() {
+    const params = {
+      Bucket: BUCKET_NAME,
+      Prefix: albumPhotosKey,
+    };
+    var albumPhotosKey = encodeURIComponent(albumName) + "/";
+    console.log(albumPhotosKey);
+    s3.listObjects(params, function(err, data) {
+      //error with callback somewhere here ^
+
+      if (err) {
+        console.log(err.message);
+      }
+      // 'this' references the AWS.Request instance that represents the response
+      var href = this.request.httpRequest.endpoint.href;
+      var bucketUrl = href + BUCKET_NAME + "/";
+      var newBucketUrl = NEW_BUCKET_NAME + "/";
+      // console.log(bucketUrl, "bucketUrl");
+
+      var photos = data.Contents.map(function(photo) {
+        var photoKey = photo.Key; //photoKey is set to the name of the file?
+        var photoUrl = newBucketUrl + encodeURIComponent(photoKey);
+        console.log(photoKey, photoUrl, "photokey + photoUrl");
+        photoArray.push({ src: photoUrl });
+      });
+      main().catch(console.error);
+    });
+  },
+};
