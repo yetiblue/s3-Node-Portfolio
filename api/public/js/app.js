@@ -2,12 +2,29 @@ const express = require("express");
 const app = express();
 const port = 4000;
 const cors = require("cors");
-const contants = require("./constants.js");
-const phrase = "Is this thing on?";
+const constants = require("./constants.js");
+async function findObject(client) {
+  const result = await client
+    .db("portfolio_images")
+    .collection("images")
+    .find({});
+  console.log(result);
+}
+async function main() {
+  //loops thru array and uploads image src to MongoDB
+  try {
+    await constants.client.connect();
+    await findObject(constants.client);
+  } catch (e) {
+    console.log(e);
+  } finally {
+    await constants.client.close();
+  }
+}
+main();
 
 const photoActions = require("./uploadDownload.js");
-photoActions.testImport(phrase);
-photoActions.viewAlbum("Nature");
+
 app.use(
   cors({
     origin: `http://localhost:3000`,
@@ -27,7 +44,10 @@ app.get("/", (req, res) => {
     }
   });
 });
-app.get("/route1", (req, res) => res.send("Hello from route 1"));
+app.get("/route1", (req, res) => {
+  res.send("Hello from route 1");
+  photoActions.viewAlbum("Nature");
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

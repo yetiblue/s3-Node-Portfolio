@@ -51,7 +51,7 @@ module.exports = {
   },
 
   viewAlbum: function(albumName) {
-    console.log(albumName, "WHAT IS THIS");
+    // console.log(albumName, "WHAT IS THIS");
     const params = {
       Bucket: constants.BUCKET_NAME,
       Prefix: albumPhotosKey, //IS THIS BEING USED?
@@ -75,7 +75,7 @@ module.exports = {
         photoArray.push({ src: photoUrl });
         console.log(photoArray, ": photoarray");
       });
-      // main().catch(console.error);
+      main().catch(console.error);
     });
   },
 };
