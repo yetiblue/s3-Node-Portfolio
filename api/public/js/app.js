@@ -3,25 +3,28 @@ const app = express();
 const port = 4000;
 const cors = require("cors");
 const constants = require("./constants.js");
+// let sendPhotos = [];
 async function findObject(client) {
-  const result = await client
+  let sendPhotos = await client
     .db("portfolio_images")
     .collection("images")
-    .find({});
-  console.log(result);
+    .find({})
+    .toArray();
+  return sendPhotos;
 }
 async function main() {
   //loops thru array and uploads image src to MongoDB
   try {
     await constants.client.connect();
-    await findObject(constants.client);
+    dbResults = await findObject(constants.client);
+
+    return dbResults;
   } catch (e) {
     console.log(e);
   } finally {
     await constants.client.close();
   }
 }
-main();
 
 const photoActions = require("./uploadDownload.js");
 
@@ -44,9 +47,18 @@ app.get("/", (req, res) => {
     }
   });
 });
-app.get("/route1", (req, res) => {
-  res.send("Hello from route 1");
-  photoActions.viewAlbum("Nature");
+app.get("/route1", (req, res, err) => {
+  // res.send("Hello from route 1");
+  res.locals.error = err;
+  const status = err.status || "500";
+  // photoActions.viewAlbum("Nature");
+  main()
+    .then((items) => {
+      res.status("500").send(items, "all items");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.listen(port, () => {
