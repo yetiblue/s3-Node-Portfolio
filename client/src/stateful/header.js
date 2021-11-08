@@ -1,8 +1,6 @@
-import axios from "axios";
 import "./header.css";
 import MetaTags from "react-meta-tags";
 import React from "react";
-import About from "../stateless/About.js";
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,16 +12,9 @@ import {
 class Header extends React.Component {
   constructor() {
     super();
-    this.state = { showSidebar: false, serverResponse: "" };
+    this.state = { showSidebar: false };
   }
-  // async componentDidMount() {
-  //   try {
-  //     const response = await axios.get(`http://localhost:4000/route1/`);
-  //     console.log(response.data);
-  //     const serverStuff = response.data;
-  //     this.setState({ serverResponse: serverStuff });
-  //   } catch {}
-  // }
+
   async openSidebar() {
     await this.setState({ showSidebar: !this.state.showSidebar }); //setState makes a request and isn't instant
 
@@ -57,7 +48,6 @@ class Header extends React.Component {
               </button>
             </li>
             <li className="sidebar__li">
-              {/* <a className="sidebar__link" href=""> */}
               <Link className="sidebar__link" to="/about">
                 About
               </Link>
@@ -93,7 +83,6 @@ class Header extends React.Component {
           </div>
 
           <div className="navbar">
-            {/* something here is bumping out the page */}
             <ul className="navbar__list">
               <Link className="navbar__link" to="/about">
                 About
@@ -110,8 +99,6 @@ class Header extends React.Component {
                     </Link>
                   </li>
                 </ul>
-
-                {/* <li className="dropdown__li"></li> */}
               </ul>
               <Link className="navbar__link" to="/">
                 Contact
