@@ -1,8 +1,6 @@
-import axios from "axios";
 import "./header.css";
 import MetaTags from "react-meta-tags";
 import React from "react";
-import About from "../stateless/About.js";
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,16 +12,9 @@ import {
 class Header extends React.Component {
   constructor() {
     super();
-    this.state = { showSidebar: false, serverResponse: "" };
+    this.state = { showSidebar: false };
   }
-  async componentDidMount() {
-    try {
-      const response = await axios.get(`http://localhost:4000/route1/`);
-      console.log(response.data);
-      const serverStuff = response.data;
-      this.setState({ serverResponse: serverStuff });
-    } catch {}
-  }
+
   async openSidebar() {
     await this.setState({ showSidebar: !this.state.showSidebar }); //setState makes a request and isn't instant
 
