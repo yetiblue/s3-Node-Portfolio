@@ -48,13 +48,11 @@ app.get("/", (req, res) => {
   });
 });
 app.get("/route1", (req, res, err) => {
-  // res.send("Hello from route 1");
   res.locals.error = err;
-  const status = err.status || "500";
-  // photoActions.viewAlbum("Nature");
+  const status = err.status || "200";
   main()
     .then((items) => {
-      res.status("500").send(items, "all items");
+      res.status(200).send(items);
     })
     .catch((err) => {
       console.log(err);
