@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="uploader.css" />
+
     <title>Upload multiple files</title>
   </head>
 
   <body>
     <form>
-      <input type="file" name="name" multiple /><br /><br />
+      <div class="drop-area">
+        <input
+          type="file"
+          class="upload-button"
+          name="name"
+          multiple
+        /><br /><br />
+      </div>
+
+      <div>
+        <select name="upload-categories" class="upload-categories">
+          <option hidden> </option>
+
+          <option value="landscape"> Landscape </option>
+          <option value="urban"> Urban </option>
+          <option value="pastel"> Pastel </option>
+          <option value="travel"> Travel </option>
+        </select>
+      </div>
       After uploading multiple files, click Submit.<br />
-      <input type="submit" value="Submit" />
+      <div class="submit-wrapper">
+        <input class="submit-button" type="submit" value="Submit" />
+      </div>
     </form>
   </body>
 </html>
+<script>
+  //for each file uploadd apply the value of the select?
+    let droparea = document.getElementById("drop-area");
+    ["dragcenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+      dropArea.addEventListener(eventName, preventDefaults, false);
+    });
+    function preventDefaults(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    dropArea.addEventListener("drop", handleDrop, false);
+    function handleDrop(e) {
+      let dt = e.dataTransfer;
+      let files = dt.files;
+
+      handleFiles(files);
+    }
+    function handleFiles(files){
+        {[...files]}.forEach(uploadFile)
+    }
+</script>
