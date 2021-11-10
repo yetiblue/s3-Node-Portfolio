@@ -12,7 +12,7 @@ async function findObject(client) {
     .toArray();
   return sendPhotos;
 }
-async function main() {
+async function fetchMongo() {
   //loops thru array and uploads image src to MongoDB
   try {
     await constants.client.connect();
@@ -37,8 +37,8 @@ app.use(express.static("/client/public"));
 app.use(express.static("public")); //for s3 JS files
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
-  let fileName = "/logo192.png";
+  // res.send("Hello World!");
+  let fileName = "./public/static/uploader.html";
   res.sendFile(fileName, function(err) {
     if (err) {
       console.log(err);
@@ -50,7 +50,7 @@ app.get("/", (req, res) => {
 app.get("/route1", (req, res, err) => {
   res.locals.error = err;
   const status = err.status || "200";
-  main()
+  fetchMongo()
     .then((items) => {
       res.status(200).send(items);
     })

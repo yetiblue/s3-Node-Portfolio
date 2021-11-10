@@ -1,28 +1,34 @@
-let photoArray = [];
+// let photoArray = [];
 const constants = require("./constants.js");
-const uploadFile = (fileName) => {
-  //filename should include name of the path of the folder before the file.
-  //take all the file names and then add on 'folder/' to the start
-  const fileContent = constants.fs.readFileSync(fileName);
-  const params = {
-    Bucket: BUCKET_NAME,
-    Key: fileName,
-    Body: fileContent,
-  };
-  constants.s3.upload(params, function(err, data) {
-    if (err) {
-      throw err;
-    }
-    console.log(`File uploaded successfully. ${data.Location}`);
-  });
-};
+// const uploadFile = (fileName, folderPath) => {
+//   //upload files from page to S3
+//   //filename should include name of the path of the folder before the file.
+//   //take all the file names and then add on 'folder/' to the start
+
+//   const fileContent = constants.fs.readFileSync(fileName);
+//   const fullPath =
+//     "/" + encodeURIComponent(folderPath) + "/" + encodeURIComponent(fileName);
+//   console.log(fullPath);
+//   const params = {
+//     Bucket: constants.BUCKET_NAME,
+//     Key: fullPath,
+//     Body: fileContent,
+//   };
+//   constants.s3.upload(params, function(err, data) {
+//     if (err) {
+//       throw err;
+//     }
+//     console.log(`File uploaded successfully. ${data.Location}`);
+//   });
+// };
+
 // for (let i = 0; i < photoArray.length; i++) {
 //   uploadFile(photoArray[i]);
 //   console.log("uploaded", photoArray[i]);
 // }
 
 async function createObject(client, newObject) {
-  //send photos to MongoDB
+  //send photo src to MongoDB
   const result = await client
     .db("portfolio_images")
     .collection("images")
@@ -30,6 +36,7 @@ async function createObject(client, newObject) {
   console.log(`new object created with the following id: ${result.insertedId}`);
 }
 async function main() {
+  //loops thru array and uploads image src to MongoDB
   try {
     await constants.client.connect();
     photoArray.splice(0, 1); //the uri for the object instead of image is included as the first item
@@ -43,13 +50,30 @@ async function main() {
     await constants.client.close();
   }
 }
-// viewAlbum("Nature");
 
 module.exports = {
-  testImport: function(phrase) {
-    console.log(phrase);
-  },
+  uploadFile: function(fileName, folderPath) {
+    //upload files from page to S3
+    //filename should include name of the path of the folder before the file.
+    //take all the file names and then add on 'folder/' to the start
 
+    const fileContent = constants.fs.readFileSync(fileName);
+    const fullPath =
+      "/" + encodeURIComponent(folderPath) + "/" + encodeURIComponent(fileName);
+    console.log(fullPath);
+    const params = {
+      Bucket: constants.BUCKET_NAME,
+      Key: fullPath,
+      Body: fileContent,
+    };
+    constants.s3.upload(params, function(err, data) {
+      if (err) {
+        throw err;
+      }
+      console.log(`File uploaded successfully. ${data.Location}`);
+    });
+  },
+  //viewAlbum -> Opens album in S3 Bucket, downloads files, and then uploads to MongoDB
   viewAlbum: function(albumName) {
     // console.log(albumName, "WHAT IS THIS");
     const params = {
@@ -72,10 +96,11 @@ module.exports = {
       var photos = data.Contents.map(function(photo) {
         var photoKey = photo.Key; //photoKey is set to the name of the file?
         var photoUrl = newBucketUrl + encodeURIComponent(photoKey);
-        photoArray.push({ src: photoUrl });
+        photoArray.push({ src: photoUrl }); //include param from above that gets filled with the collection name which would be added to tag: key
         console.log(photoArray, ": photoarray");
       });
       main().catch(console.error);
     });
   },
 };
+//need function to query from Mongo
