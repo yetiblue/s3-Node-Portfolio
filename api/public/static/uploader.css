@@ -4,7 +4,7 @@ body {
 .submit-button {
   width: 50%;
   background-color: #4caf50;
-  color: white;
+  color: black;
   padding: 14px 20px;
   margin: 8px 400px;
   border: none;
@@ -12,27 +12,32 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
-.upload-button {
-  background-color: purple;
+.instructions {
+  color: black;
 }
 .submit-button:hover {
   background-color: #45a049;
 }
-.submit-wrapper {
+/* .submit-wrapper {
   border: 1px solid white;
-}
+} */
 /* .upload-button{
 
 } */
 .drop-area {
+  color: white;
   border: 5px dashed #ccc;
   border-radius: 20px;
   border-style: border-box;
   width: 480px;
   height: 250px;
+  background-color: white;
   font-family: sans-serif;
   margin: 100px auto;
   padding: 20px;
+}
+.drop-area--over {
+  border-style: solid;
 }
 .upload-categories {
   width: 50%;

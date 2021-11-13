@@ -9,6 +9,7 @@
   <body>
     <form>
       <div class="drop-area">
+        <p class="instructions">Drag Files Here</p>
         <input
           type="file"
           class="upload-button"
@@ -35,23 +36,27 @@
   </body>
 </html>
 <script>
-  //for each file uploadd apply the value of the select?
-    let droparea = document.getElementById("drop-area");
-    ["dragcenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
-      dropArea.addEventListener(eventName, preventDefaults, false);
-    });
-    function preventDefaults(e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    dropArea.addEventListener("drop", handleDrop, false);
-    function handleDrop(e) {
-      let dt = e.dataTransfer;
-      let files = dt.files;
+  let formGenre;
+  let formData = new FormData(); //do I even need formData?
 
-      handleFiles(files);
+  function readFileAsText(file) {}
+  const genre = document.querySelector(".upload-categories");
+  genre.addEventListener("change", function() {
+    formGenre = this.value;
+  });
+
+  const uploaderButton = document.querySelector(".upload-button");
+  uploaderButton.addEventListener("change", (event) => {
+    let files = event.currentTarget.files;
+    let fileArray = [];
+    let photoObject = [];
+    if (!files.length) return;
+
+    for (let i = 0; i < files.length; i++) {
+      fileArray.push(URL.createObjectURL(files[i]));
     }
-    function handleFiles(files){
-        {[...files]}.forEach(uploadFile)
-    }
+    fileArray.forEach((blob) => {
+      photoObject.push({ src: blob, genre: formGenre }); //call this when submit is hit and then send photoObject directly
+    });
+  });
 </script>
