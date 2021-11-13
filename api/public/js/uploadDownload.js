@@ -96,7 +96,7 @@ module.exports = {
       var photos = data.Contents.map(function(photo) {
         var photoKey = photo.Key; //photoKey is set to the name of the file?
         var photoUrl = newBucketUrl + encodeURIComponent(photoKey);
-        photoArray.push({ src: photoUrl }); //include param from above that gets filled with the collection name which would be added to tag: key
+        photoArray.push({ src: photoUrl, genre: albumName }); //include param from above that gets filled with the collection name which would be added to tag: key
         console.log(photoArray, ": photoarray");
       });
       main().catch(console.error);

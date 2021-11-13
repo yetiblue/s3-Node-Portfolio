@@ -37,7 +37,7 @@
 </html>
 <script>
   let formGenre;
-  let formData = new FormData(); //do I even need formData?
+  {% comment %} let formData = new FormData(); //do I even need formData? {% endcomment %}
 
   function readFileAsText(file) {}
   const genre = document.querySelector(".upload-categories");
@@ -56,7 +56,8 @@
       fileArray.push(URL.createObjectURL(files[i]));
     }
     fileArray.forEach((blob) => {
-      photoObject.push({ src: blob, genre: formGenre }); //call this when submit is hit and then send photoObject directly
+      photoObject.push({ src: blob });
+      //call uploadFile here, and pass in formGenre as the foldername!
     });
   });
 </script>
