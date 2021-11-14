@@ -50,8 +50,10 @@ async function main() {
     await constants.client.close();
   }
 }
-
 module.exports = {
+  testFunc: function() {
+    console.log("hello");
+  },
   uploadFile: function(fileName, folderPath) {
     //upload files from page to S3
     //filename should include name of the path of the folder before the file.

@@ -13,6 +13,7 @@ const s3 = new AWS.S3({
   accessKeyId: ID,
   secretAccessKey: SECRET,
 });
+const default = "none";
 
 module.exports = {
   ID,
