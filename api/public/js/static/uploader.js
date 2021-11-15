@@ -1,6 +1,7 @@
 // test.testFunc("poo", "poo");
 // testFunc();]
-import testFunc from "../js/uploadDownload.js";
+// import { testFunc } from "../uploadDownload.js";
+// testFunc;
 let formGenre;
 
 function readFileAsText(file) {}
