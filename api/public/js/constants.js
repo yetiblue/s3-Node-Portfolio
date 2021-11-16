@@ -8,9 +8,6 @@ export const ID = `${process.env.ID}`;
 export const SECRET = `${process.env.SECRET}`;
 export const BUCKET_NAME = `${process.env.BUCKET_NAME}`; //used to access bucket for files
 export const NEW_BUCKET_NAME = `${process.env.UPDATED_BUCKET_NAME}`; //used to create new version of s3 object URLs
-// export { fs } from "fs";
-// export MongoClient;
-
 import AWS from "aws-sdk";
 export const s3 = new AWS.S3({
   accessKeyId: ID,

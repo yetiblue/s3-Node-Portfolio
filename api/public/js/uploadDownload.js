@@ -2,7 +2,6 @@
 
 // const constants = require("./constants.js");
 import * as constants from "./constants.js";
-console.log(constants.ID);
 // const uploadFile = (fileName, folderPath) => {
 //   //upload files from page to S3
 //   //filename should include name of the path of the folder before the file.
@@ -53,9 +52,9 @@ async function main() {
     await constants.client.close();
   }
 }
-export const testFunc = function() {
+export function testFunc() {
   console.log("hello");
-};
+}
 
 // module.exports = {
 //   // default: "42",

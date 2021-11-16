@@ -1,5 +1,8 @@
 // const express = require("express");
 import express from "express";
+import { testFunc } from "./uploadDownload.js";
+testFunc();
+testFunc;
 const app = express();
 const port = 4000;
 // const path = require("path");
