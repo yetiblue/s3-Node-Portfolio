@@ -1,21 +1,16 @@
-// const express = require("express");
 import express from "express";
 import { testFunc } from "./uploadDownload.js";
 testFunc();
-testFunc;
 const app = express();
 const port = 4000;
-// const path = require("path");
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-// const cors = require("cors");
 import cors from "cors";
 import constants from "constants";
-// const constants = require("./constants.js");
-// let sendPhotos = [];
+
 async function findObject(client) {
   let sendPhotos = await client
     .db("portfolio_images")

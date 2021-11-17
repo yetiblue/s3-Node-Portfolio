@@ -8,6 +8,7 @@ import About from "./stateless/About.js";
 import Header from "./stateful/header.js";
 import PhotoGrid from "./stateless/PhotoGrid.js";
 import reportWebVitals from "./reportWebVitals";
+import FileUpload from "./stateless/FileUpload.js";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.render(
         <Route exact path="/" component={Header} />
         <Route exact path="/about" component={About} />
         <Route exact path="/work" component={About} />
+        <Route exact path="/uploadimage" component={FileUpload} />
       </Router>
     </div>
   </React.StrictMode>,
