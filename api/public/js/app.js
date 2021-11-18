@@ -4,6 +4,8 @@ testFunc();
 const app = express();
 const port = 4000;
 import path from "path";
+import bodyParser from "body-parser";
+app.use(bodyParser.json());
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
@@ -43,18 +45,6 @@ app.use(
 app.use(express.static(path.join(__dirname))); //for s3 JS files
 // console.log(path.join(__dirname + "../"));
 
-// app.get("/", (req, res) => {
-//   // // res.send("Hello World!");
-//   // let fileName = "./public/static/uploader.html";
-//   // res.sendFile(fileName, function(err) {
-//   //   if (err) {
-//   //     console.log(err);
-//   //   } else {
-//   //     console.log("Sent:", fileName);
-//   //   }
-//   // });
-//   res.sendFile("uploader.html");
-// });
 app.get("/route1", (req, res, err) => {
   res.locals.error = err;
   const status = err.status || "200";
@@ -65,6 +55,12 @@ app.get("/route1", (req, res, err) => {
     .catch((err) => {
       console.log(err);
     });
+});
+app.post("/uploadphotos", (req, res, err) => {
+  res.sendStatus(200);
+  console.log(req.body, "request");
+  let photoArray = req.body;
+  testFunc(photoArray);
 });
 
 app.listen(port, () => {

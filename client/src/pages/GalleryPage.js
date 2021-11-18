@@ -20,7 +20,9 @@ class GalleryPage extends React.Component {
       await serverStuff.forEach((photo) => photoArray.push(photo));
       console.log(photoArray);
       this.setState({ serverResponse: photoArray });
-    } catch {}
+    } catch {
+      console.log("error");
+    }
   }
   render() {
     console.log(this.state.photoList);

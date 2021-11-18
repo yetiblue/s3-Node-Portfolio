@@ -52,8 +52,8 @@ async function main() {
     await constants.client.close();
   }
 }
-export function testFunc() {
-  console.log("hello");
+export function testFunc(array) {
+  console.log(array, "array");
 }
 
 // module.exports = {
