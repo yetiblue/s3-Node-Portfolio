@@ -47,11 +47,15 @@ class FileUpload extends React.Component {
     e.preventDefault();
 
     console.log(this.state.uploadFiles, "files to be uploaded");
+    const formElements = {
+      files: this.state.uploadFiles,
+      folderName: this.state.selectValue,
+    };
     axios
       .post(
         this.state.axiosRoute,
         // this.state.selectValue,
-        this.state.uploadFiles
+        formElements
       )
       .then((response) => {
         console.log("Successfully Posted");

@@ -1,6 +1,5 @@
 import express from "express";
-import { testFunc } from "./uploadDownload.js";
-testFunc();
+import { uploadFile } from "./uploadDownload.js";
 const app = express();
 const port = 4000;
 import path from "path";
@@ -60,7 +59,17 @@ app.post("/uploadphotos", (req, res, err) => {
   res.sendStatus(200);
   console.log(req.body, "request");
   let photoArray = req.body;
-  testFunc(photoArray);
+  // testFunc(photoArray);
+  let reconfiguredPhotoArray = [];
+  photoArray.files.forEach((photo) =>
+    reconfiguredPhotoArray.push({
+      src: photo.src,
+      folderName: photoArray.folderName,
+    })
+  );
+  reconfiguredPhotoArray.forEach((photo) =>
+    uploadFile(photo.src, photo.folderName)
+  );
 });
 
 app.listen(port, () => {

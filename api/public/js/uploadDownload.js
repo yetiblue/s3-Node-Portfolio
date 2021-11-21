@@ -52,8 +52,30 @@ async function main() {
     await constants.client.close();
   }
 }
-export function testFunc(array) {
-  console.log(array, "array");
+// export function testFunc(array) {
+//   console.log(array.folderName, "folderbane", array.files);
+// }
+
+export function uploadFile(fileName, folderPath) {
+  //upload files from page to S3
+  //filename should include name of the path of the folder before the file.
+  //take all the file names and then add on 'folder/' to the start
+
+  const fileContent = constants.fs.readFileSync(fileName);
+  const fullPath =
+    "/" + encodeURIComponent(folderPath) + "/" + encodeURIComponent(fileName);
+  console.log(fullPath);
+  const params = {
+    Bucket: constants.BUCKET_NAME,
+    Key: fullPath,
+    Body: fileContent,
+  };
+  constants.s3.upload(params, function(err, data) {
+    if (err) {
+      throw err;
+    }
+    console.log(`File uploaded successfully. ${data.Location}`);
+  });
 }
 
 // module.exports = {
@@ -61,27 +83,7 @@ export function testFunc(array) {
 //   testFunc: function() {
 //     console.log("hello");
 //   },
-//   uploadFile: function(fileName, folderPath) {
-//     //upload files from page to S3
-//     //filename should include name of the path of the folder before the file.
-//     //take all the file names and then add on 'folder/' to the start
 
-//     const fileContent = constants.fs.readFileSync(fileName);
-//     const fullPath =
-//       "/" + encodeURIComponent(folderPath) + "/" + encodeURIComponent(fileName);
-//     console.log(fullPath);
-//     const params = {
-//       Bucket: constants.BUCKET_NAME,
-//       Key: fullPath,
-//       Body: fileContent,
-//     };
-//     constants.s3.upload(params, function(err, data) {
-//       if (err) {
-//         throw err;
-//       }
-//       console.log(`File uploaded successfully. ${data.Location}`);
-//     });
-//   },
 //   //viewAlbum -> Opens album in S3 Bucket, downloads files, and then uploads to MongoDB
 //   viewAlbum: function(albumName) {
 //     // console.log(albumName, "WHAT IS THIS");
