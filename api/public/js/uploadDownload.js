@@ -56,27 +56,30 @@ async function main() {
 //   console.log(array.folderName, "folderbane", array.files);
 // }
 
-export function uploadFile(fileName, folderPath) {
+export function uploadFile(filecontent, folderPath) {
   //upload files from page to S3
-  console.log(fileName, "filename");
   //filename should include name of the path of the folder before the file.
   //take all the file names and then add on 'folder/' to the start
 
-  const fileContent = constants.fs.readFileSync(fileName);
-  const fullPath =
-    "/" + encodeURIComponent(folderPath) + "/" + encodeURIComponent(fileName);
-  console.log(fullPath);
-  const params = {
-    Bucket: constants.BUCKET_NAME,
-    Key: fullPath,
-    Body: fileContent,
-  };
-  constants.s3.upload(params, function(err, data) {
-    if (err) {
-      throw err;
-    }
-    console.log(`File uploaded successfully. ${data.Location}`);
-  });
+  // const fileContent = constants.fs.readFileSync(fileName);
+  console.log(filecontent.name, folderPath, "function params");
+  // const fullPath =
+  //   "/" +
+  //   encodeURIComponent(folderPath) +
+  //   "/" +
+  //   encodeURIComponent(filecontent.name);
+  // console.log(fullPath, "fullpath");
+  // const params = {
+  //   Bucket: constants.BUCKET_NAME,
+  //   Key: fullPath,
+  //   Body: fileContent,
+  // };
+  // constants.s3.upload(params, function(err, data) {
+  //   if (err) {
+  //     throw err;
+  //   }
+  //   console.log(`File uploaded successfully. ${data.Location}`);
+  // });
 }
 
 // module.exports = {
