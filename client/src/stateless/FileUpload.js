@@ -14,49 +14,55 @@ class FileUpload extends React.Component {
     this.handleFileUpload = this.handleFileUpload.bind(this);
     this.returnSelectValue = this.returnSelectValue.bind(this);
   }
-  componentDidMount() {
-    // this.uploadButton.current.addEventListener(
-    //   "change",
-    //   this.returnSelectValue("boo")
-    // );
-    // this.selectField.current.addEventListener("change", this);
-  }
+  componentDidMount() {}
   async handleFileUpload(event) {
     let files = event.currentTarget.files;
     console.log(files, "files");
     let fileArray = [];
     let photoObject = [];
+
     if (!files.length) return;
 
     for (let i = 0; i < files.length; i++) {
-      fileArray.push(URL.createObjectURL(files[i]));
-    }
-    fileArray.forEach((blob) => {
-      photoObject.push({ src: blob });
+      // let uploadFile = new File([files[i]], files[i].name);
+      // console.log(uploadFile, "uploadFile");
 
-      //call uploadFile here, and pass in formGenre as the foldername!
-    });
-    await this.setState({ uploadFiles: photoObject });
-    console.log("finished setting state");
+      fileArray.push(files[i]);
+      console.log(fileArray, "fileArray");
+    }
+
+    await this.setState({ uploadFiles: fileArray });
+    console.log(this.state.uploadFiles, "finished setting state");
   }
   async returnSelectValue(event) {
     await this.setState({ selectValue: event.target.value });
     console.log(this.state.selectValue);
   }
   submitForm(e) {
+    let formData = new FormData();
+    this.state.uploadFiles.forEach((file) => {
+      formData.append("files", file);
+    });
+    formData.append("folderName", this.state.selectValue);
+    // formData.append(
+    //   "files",
+    //   this.state.uploadFile,
+    //   "folderName",
+    //   this.state.selectValue
+    // );
+    console.log(formData, "formData");
     e.preventDefault();
-
-    console.log(this.state.uploadFiles, "files to be uploaded");
-    const formElements = {
-      files: this.state.uploadFiles,
-      folderName: this.state.selectValue,
+    // const formElements = {
+    //   // files: this.state.uploadFiles,
+    //   folderName: this.state.selectValue,
+    // };
+    let config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
     };
     axios
-      .post(
-        this.state.axiosRoute,
-        // this.state.selectValue,
-        formElements
-      )
+      .post(this.state.axiosRoute, formData, config)
       .then((response) => {
         console.log("Successfully Posted");
       })

@@ -58,6 +58,7 @@ async function main() {
 
 export function uploadFile(fileName, folderPath) {
   //upload files from page to S3
+  console.log(fileName, "filename");
   //filename should include name of the path of the folder before the file.
   //take all the file names and then add on 'folder/' to the start
 

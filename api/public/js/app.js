@@ -1,6 +1,8 @@
 import express from "express";
 import { uploadFile } from "./uploadDownload.js";
 const app = express();
+import multer from "multer";
+const upload = multer();
 const port = 4000;
 import path from "path";
 import bodyParser from "body-parser";
@@ -55,21 +57,23 @@ app.get("/route1", (req, res, err) => {
       console.log(err);
     });
 });
-app.post("/uploadphotos", (req, res, err) => {
+app.post("/uploadphotos", upload.array("files", 10), (req, res, err) => {
   res.sendStatus(200);
-  console.log(req.body, "request");
-  let photoArray = req.body;
+  console.log(req.files, "request");
+  console.log(req.body, "upload");
+  // let photoArray = req.body;
+  // console.log(photoArray, "photoarray");
   // testFunc(photoArray);
   let reconfiguredPhotoArray = [];
-  photoArray.files.forEach((photo) =>
-    reconfiguredPhotoArray.push({
-      src: photo.src,
-      folderName: photoArray.folderName,
-    })
-  );
-  reconfiguredPhotoArray.forEach((photo) =>
-    uploadFile(photo.src, photo.folderName)
-  );
+  // photoArray.files.forEach((photo) =>
+  //   reconfiguredPhotoArray.push({
+  //     src: photo.src,
+  //     folderName: photoArray.folderName,
+  //   })
+  // );
+  // reconfiguredPhotoArray.forEach((photo) =>
+  //   uploadFile(photo.src, photo.folderName)
+  // );
 });
 
 app.listen(port, () => {
