@@ -1,20 +1,29 @@
 import express from "express";
 import { uploadFile } from "./uploadDownload.js";
-const app = express();
 import multer from "multer";
-const upload = multer({
-  dest: "uploads/", // "uploads"
-});
-const port = 4000;
 import path from "path";
 import bodyParser from "body-parser";
-app.use(bodyParser.json());
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 import cors from "cors";
 import constants from "constants";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const app = express();
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, path.join(__dirname, "/uploads/"));
+  },
+
+  filename: function(req, file, cb) {
+    /*Appending extension with original name*/
+    cb(null, file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+const port = 4000;
+
+app.use(bodyParser.json());
 
 async function findObject(client) {
   let sendPhotos = await client
@@ -68,8 +77,12 @@ app.post("/uploadphotos", upload.array("files", 10), (req, res, err) => {
   var paths = req.files.map((file) => file.path);
   console.log(paths[0], "paths");
   let folder = req.body;
-  let data = constants.fs.createReadStream(paths[0], "utf8");
-  console.log(data);
+  // constants.fs.readFile(paths[0], (err, data) => {
+  //   console.log(data, "data");
+  // });
+  // console.log(data, "data");
+  // let data = constants.fs.createReadStream(paths[0], "utf8");
+  // console.log(data);
 
   // const absolutePath = path.join(__dirname, req.files.path);
   // const jsonString = fs.readFileSync(absolutePath, "utf-8");
