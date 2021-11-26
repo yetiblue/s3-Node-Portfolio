@@ -1,5 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
+import fs from "fs";
+export const fileSystem = fs;
 import { MongoClient } from "mongodb";
 export const uri = `${process.env.URI}`;
 const connection = new MongoClient(uri);

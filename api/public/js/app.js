@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
+import fs from "fs";
 import constants from "constants";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -72,14 +73,12 @@ app.post("/uploadphotos", upload.array("files", 10), (req, res, err) => {
   res.sendStatus(200);
   let reconfiguredPhotoArray = [];
 
-  // console.log(req.files, "request");
-  // console.log(req.body, "upload");
   var paths = req.files.map((file) => file.path);
   console.log(paths[0], "paths");
   let folder = req.body;
-  // constants.fs.readFile(paths[0], (err, data) => {
-  //   console.log(data, "data");
-  // });
+  fs.readFile("./uploads/DSC00645.jpg", (err, data) => {
+    console.log(data, "data");
+  });
   // console.log(data, "data");
   // let data = constants.fs.createReadStream(paths[0], "utf8");
   // console.log(data);
