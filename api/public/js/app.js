@@ -76,30 +76,8 @@ app.post("/uploadphotos", upload.array("files", 10), (req, res, err) => {
   var paths = req.files.map((file) => file.path);
   console.log(paths[0], "paths");
   let folder = req.body;
-  fs.readFile("./uploads/DSC00645.jpg", (err, data) => {
-    console.log(data, "data");
-  });
-  // console.log(data, "data");
-  // let data = constants.fs.createReadStream(paths[0], "utf8");
-  // console.log(data);
 
-  // const absolutePath = path.join(__dirname, req.files.path);
-  // const jsonString = fs.readFileSync(absolutePath, "utf-8");
-  // const jsonObject = JSON.parse(jsonString);
-  // console.log(jsonObject, "js object");
-  // const fileContent = constants.fs.readFileSync(fileName);
-  // const fileContent = constants.fs.readFileSync(fileName);
-
-  // uploadFile(reconfiguredPhotoArray[0].file, folder);
-  // console.log(photoArray, "photoarray");
-  // testFunc(photoArray);
-
-  // photoArray.files.forEach((photo) =>
-  //   reconfiguredPhotoArray.push({
-  //     src: photo.src,
-  //     folderName: photoArray.folderName,
-  //   })
-  // );
+  uploadFile(paths[0], folder, req.files[0].originalname);
 });
 
 app.listen(port, () => {
