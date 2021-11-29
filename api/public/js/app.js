@@ -32,9 +32,10 @@ async function findObject(client) {
     .collection("images")
     .find({})
     .toArray();
+  //sort with the genre name?
   return sendPhotos;
 }
-async function fetchMongo() {
+async function fetchMongo(genreName) {
   //loops thru array and uploads image src to MongoDB
   try {
     await constants.client.connect();
@@ -74,10 +75,13 @@ app.post("/uploadphotos", upload.array("files", 10), (req, res, err) => {
   let reconfiguredPhotoArray = [];
 
   var paths = req.files.map((file) => file.path);
-  console.log(paths[0], "paths");
   let folder = req.body;
+  console.log(paths.length);
+  for (let i = 0; i < paths.length; i++) {
+    console.log(paths[i], "paths");
 
-  uploadFile(paths[0], folder, req.files[0].originalname);
+    uploadFile(paths[i], folder, req.files[i].originalname);
+  }
 });
 
 app.listen(port, () => {
