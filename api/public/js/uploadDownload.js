@@ -1,34 +1,7 @@
-// let photoArray = [];
 import fs from "fs";
-// const constants = require("./constants.js");
 import * as constants from "./constants.js";
-// const uploadFile = (fileName, folderPath) => {
-//   //upload files from page to S3
-//   //filename should include name of the path of the folder before the file.
-//   //take all the file names and then add on 'folder/' to the start
 
-//   const fileContent = constants.fs.readFileSync(fileName);
-//   const fullPath =
-//     "/" + encodeURIComponent(folderPath) + "/" + encodeURIComponent(fileName);
-//   console.log(fullPath);
-//   const params = {
-//     Bucket: constants.BUCKET_NAME,
-//     Key: fullPath,
-//     Body: fileContent,
-//   };
-//   constants.s3.upload(params, function(err, data) {
-//     if (err) {
-//       throw err;
-//     }
-//     console.log(`File uploaded successfully. ${data.Location}`);
-//   });
-// };
-
-// for (let i = 0; i < photoArray.length; i++) {
-//   uploadFile(photoArray[i]);
-//   console.log("uploaded", photoArray[i]);
-// }
-let photoArray = [];
+let photoArray = []; //holding downoaded photos from the s3 bucket
 
 async function createObject(client, newObject) {
   //send photo src to MongoDB
@@ -53,9 +26,6 @@ async function main() {
     await constants.client.close();
   }
 }
-// export function testFunc(array) {
-//   console.log(array.folderName, "folderbane", array.files);
-// }
 
 export async function uploadFile(file, folderPath, fileName) {
   const fileContent = fs.readFileSync(file);
@@ -82,8 +52,6 @@ export async function uploadFile(file, folderPath, fileName) {
     }
     console.log(`File uploaded successfully. ${data.Location}`);
   });
-  ////////// upload locations working  up to here for multiple files ///////
-  // viewAlbum(folderPath.folderName); //call this in app.js
 }
 
 //   //viewAlbum -> Opens album in S3 Bucket, downloads files, and then uploads to MongoDB

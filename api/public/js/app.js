@@ -70,9 +70,8 @@ app.get("/route1", (req, res, err) => {
       console.log(err);
     });
 });
-app.post("/uploadphotos", upload.array("files", 10), (req, res, err) => {
+app.post("/uploadphotos", upload.array("files", 10), async (req, res, err) => {
   res.sendStatus(200);
-  let reconfiguredPhotoArray = [];
 
   var paths = req.files.map((file) => file.path);
   let folder = req.body;
@@ -80,7 +79,7 @@ app.post("/uploadphotos", upload.array("files", 10), (req, res, err) => {
   for (let i = 0; i < paths.length; i++) {
     console.log(paths[i], "paths");
 
-    uploadFile(paths[i], folder, req.files[i].originalname);
+    await uploadFile(paths[i], folder, req.files[i].originalname);
   }
   viewAlbum(folder.folderName);
 });
