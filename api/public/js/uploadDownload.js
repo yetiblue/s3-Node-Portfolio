@@ -82,11 +82,12 @@ export async function uploadFile(file, folderPath, fileName) {
     }
     console.log(`File uploaded successfully. ${data.Location}`);
   });
-  viewAlbum(folderPath.folderName);
+  ////////// upload locations working  up to here for multiple files ///////
+  // viewAlbum(folderPath.folderName); //call this in app.js
 }
 
 //   //viewAlbum -> Opens album in S3 Bucket, downloads files, and then uploads to MongoDB
-function viewAlbum(albumName) {
+export function viewAlbum(albumName) {
   // console.log(albumName, "WHAT IS THIS");
   let albumPhotosKey = encodeURIComponent(albumName) + "/";
 

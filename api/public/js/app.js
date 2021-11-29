@@ -1,5 +1,5 @@
 import express from "express";
-import { uploadFile } from "./uploadDownload.js";
+import { uploadFile, viewAlbum } from "./uploadDownload.js";
 import multer from "multer";
 import path from "path";
 import bodyParser from "body-parser";
@@ -82,6 +82,7 @@ app.post("/uploadphotos", upload.array("files", 10), (req, res, err) => {
 
     uploadFile(paths[i], folder, req.files[i].originalname);
   }
+  viewAlbum(folder.folderName);
 });
 
 app.listen(port, () => {
