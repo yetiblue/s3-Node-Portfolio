@@ -79,9 +79,8 @@ app.post("/uploadphotos", upload.array("files", 10), async (req, res, err) => {
   for (let i = 0; i < paths.length; i++) {
     console.log(paths[i], "paths");
 
-    await uploadFile(paths[i], folder, req.files[i].originalname);
+    uploadFile(paths[i], folder, req.files[i].originalname);
   }
-  viewAlbum(folder.folderName);
 });
 
 app.listen(port, () => {

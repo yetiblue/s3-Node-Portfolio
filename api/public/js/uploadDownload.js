@@ -27,7 +27,7 @@ async function main() {
   }
 }
 
-export async function uploadFile(file, folderPath, fileName) {
+export function uploadFile(file, folderPath, fileName) {
   const fileContent = fs.readFileSync(file);
   console.log(
     fileContent,
@@ -46,17 +46,21 @@ export async function uploadFile(file, folderPath, fileName) {
     Key: fullPath,
     Body: fileContent,
   };
-  await constants.s3.upload(params, function(err, data) {
-    if (err) {
-      throw err;
-    }
-    console.log(`File uploaded successfully. ${data.Location}`);
+  let s3Upload = constants.s3.upload(params).promise();
+  s3Upload
+    .then((data) => {
+      console.log(`File uploaded successfully. ${data.Location}`);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  Promise.all([s3Upload]).then(() => {
+    viewAlbum(folderPath.folderName);
   });
 }
 
 //   //viewAlbum -> Opens album in S3 Bucket, downloads files, and then uploads to MongoDB
 export function viewAlbum(albumName) {
-  // console.log(albumName, "WHAT IS THIS");
   let albumPhotosKey = encodeURIComponent(albumName) + "/";
 
   const params = {
@@ -70,10 +74,10 @@ export function viewAlbum(albumName) {
     console.log(data, "data");
     var newBucketUrl = constants.NEW_BUCKET_NAME + "/"; //new AWS syntax for the bucket
 
-    var photos = data.Contents.map(async function(photo) {
+    var photos = data.Contents.map(function(photo) {
       var photoKey = photo.Key; //name of the file in 'data'
       var photoUrl = newBucketUrl + encodeURIComponent(photoKey);
-      await photoArray.push({ src: photoUrl, genre: albumName }); //include param from above that gets filled with the collection name which would be added to tag: key
+      photoArray.push({ src: photoUrl, genre: albumName }); //include param from above that gets filled with the collection name which would be added to tag: key
       console.log(photoArray, ": photoarray");
     });
     // main().catch(console.error);
