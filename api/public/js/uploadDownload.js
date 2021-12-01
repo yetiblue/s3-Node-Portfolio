@@ -9,7 +9,7 @@ async function createObject(client, newObject) {
     .db("portfolio_images")
     .collection("images")
     .insertOne(newObject);
-  console.log(`new object created with the following id: ${result.insertedId}`);
+  // console.log(`new object created with the following id: ${result.insertedId}`);
 }
 async function main() {
   //loops thru array and uploads image src to MongoDB
@@ -40,7 +40,7 @@ export function uploadFile(file, folderPath, fileName) {
     encodeURIComponent(folderPath.folderName) +
     "/" +
     encodeURIComponent(fileName);
-  console.log(fullPath, "fullpath");
+  // console.log(fullPath, "fullpath");
   const params = {
     Bucket: constants.BUCKET_NAME,
     Key: fullPath,
@@ -71,15 +71,14 @@ export function viewAlbum(albumName) {
     if (err) {
       console.log(err.message);
     }
-    console.log(data, "data");
     var newBucketUrl = constants.NEW_BUCKET_NAME + "/"; //new AWS syntax for the bucket
 
     var photos = data.Contents.map(function(photo) {
       var photoKey = photo.Key; //name of the file in 'data'
       var photoUrl = newBucketUrl + encodeURIComponent(photoKey);
       photoArray.push({ src: photoUrl, genre: albumName }); //include param from above that gets filled with the collection name which would be added to tag: key
-      console.log(photoArray, ": photoarray");
+      // console.log(photoArray, ": photoarray");
     });
-    // main().catch(console.error);
+    main().catch(console.error);
   });
 }
