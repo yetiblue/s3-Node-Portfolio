@@ -26,20 +26,20 @@ const port = 4000;
 
 app.use(bodyParser.json());
 
-async function findObject(client) {
+async function findObject(client, genre) {
   let sendPhotos = await client
     .db("portfolio_images")
     .collection("images")
     .find({})
+    // .find({ genre: genre }) //USE THIS
     .toArray();
-  //sort with the genre name?
   return sendPhotos;
 }
 async function fetchMongo(genreName) {
   //loops thru array and uploads image src to MongoDB
   try {
     await constants.client.connect();
-    dbResults = await findObject(constants.client);
+    dbResults = await findObject(constants.client, genreName);
 
     return dbResults;
   } catch (e) {
@@ -59,10 +59,12 @@ app.use(
 app.use(express.static(path.join(__dirname))); //for s3 JS files
 // console.log(path.join(__dirname + "../"));
 
-app.get("/route1", (req, res, err) => {
+app.get("/getPhotos/:id", (req, res, err) => {
+  let id = req.params.id;
+  //id = urban or pastel or landscape etc. Id then passed to fetchMongo
   res.locals.error = err;
   const status = err.status || "200";
-  fetchMongo()
+  fetchMongo(id)
     .then((items) => {
       res.status(200).send(items);
     })

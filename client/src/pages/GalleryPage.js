@@ -14,7 +14,7 @@ class GalleryPage extends React.Component {
   // }
   async componentDidMount() {
     try {
-      const response = await axios.get(`http://localhost:4000/route1/`);
+      const response = await axios.get(`http://localhost:4000/getphotos/`); // { params: { answer: 42 }
       let photoArray = [];
       const serverStuff = response.data;
       await serverStuff.forEach((photo) => photoArray.push(photo));

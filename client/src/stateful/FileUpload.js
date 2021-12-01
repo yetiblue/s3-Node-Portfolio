@@ -44,18 +44,10 @@ class FileUpload extends React.Component {
       formData.append("files", file);
     });
     formData.append("folderName", this.state.selectValue);
-    // formData.append(
-    //   "files",
-    //   this.state.uploadFile,
-    //   "folderName",
-    //   this.state.selectValue
-    // );
+
     console.log(formData, "formData");
     e.preventDefault();
-    // const formElements = {
-    //   // files: this.state.uploadFiles,
-    //   folderName: this.state.selectValue,
-    // };
+
     let config = {
       headers: {
         "Content-Type": "multipart/form-data",

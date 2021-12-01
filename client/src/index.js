@@ -2,13 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
-import App from "./App.js";
+import GalleryPage from "./pages/GalleryPage.js";
 import About from "./stateless/About.js";
-// import GalleryPage from "./pages/GalleryPage.js";
 import Header from "./stateful/header.js";
 import PhotoGrid from "./stateless/PhotoGrid.js";
 import reportWebVitals from "./reportWebVitals";
-import FileUpload from "./stateless/FileUpload.js";
+import FileUpload from "./stateful/FileUpload.js";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +17,8 @@ ReactDOM.render(
         <Route exact path="/about" component={About} />
         <Route exact path="/work" component={About} />
         <Route exact path="/uploadimage" component={FileUpload} />
+        <Route exact path="/photography" component={GalleryPage} />
+        <Route exact path="/generative" component={GalleryPage} />
       </Router>
     </div>
   </React.StrictMode>,
