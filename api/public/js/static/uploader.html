@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="uploader.css" />
+
+    <title>Upload multiple files</title>
+  </head>
+
+  <body>
+    <form>
+      <div class="drop-area">
+        <p class="instructions">Drag Files Here</p>
+        <input
+          type="file"
+          class="upload-button"
+          name="name"
+          multiple
+        /><br /><br />
+      </div>
+
+      <div>
+        <select name="upload-categories" class="upload-categories">
+          <option hidden> </option>
+
+          <option value="landscape"> Landscape </option>
+          <option value="urban"> Urban </option>
+          <option value="pastel"> Pastel </option>
+          <option value="travel"> Travel </option>
+        </select>
+      </div>
+      After uploading multiple files, click Submit.<br />
+      <div class="submit-wrapper">
+        <input class="submit-button" type="submit" value="Submit" />
+      </div>
+    </form>
+  </body>
+</html>
+
+<script type="module" src="./uploader.js"></script>
