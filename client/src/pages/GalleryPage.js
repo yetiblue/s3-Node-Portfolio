@@ -13,8 +13,11 @@ class GalleryPage extends React.Component {
 
   // }
   async componentDidMount() {
+    console.log(this.props.location.pathname, "param id");
     try {
-      const response = await axios.get(`http://localhost:4000/getphotos/`); // { params: { answer: 42 }
+      const response = await axios.get(
+        `http://localhost:4000/getphotos${this.props.location.pathname}`
+      ); //ugly temp test to see if i can get the param to send to mongo for querying,
       let photoArray = [];
       const serverStuff = response.data;
       await serverStuff.forEach((photo) => photoArray.push(photo));

@@ -19,6 +19,9 @@ ReactDOM.render(
         <Route exact path="/uploadimage" component={FileUpload} />
         <Route exact path="/photography" component={GalleryPage} />
         <Route exact path="/generative" component={GalleryPage} />
+
+        <Route exact path="/urban" component={GalleryPage} />
+        <Route exact path="/travel" component={GalleryPage} />
       </Router>
     </div>
   </React.StrictMode>,

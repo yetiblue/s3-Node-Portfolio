@@ -62,6 +62,7 @@ app.use(express.static(path.join(__dirname))); //for s3 JS files
 
 app.get("/getPhotos/:id", (req, res, err) => {
   let id = req.params.id;
+  console.log(id, "req id");
   //id = urban or pastel or landscape etc. Id then passed to fetchMongo
   res.locals.error = err;
   const status = err.status || "200";
