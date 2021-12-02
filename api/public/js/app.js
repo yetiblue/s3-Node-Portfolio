@@ -7,7 +7,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
 import fs from "fs";
-import constants from "constants";
+import * as constants from "./constants.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
@@ -27,19 +27,21 @@ const port = 4000;
 app.use(bodyParser.json());
 
 async function findObject(client, genre) {
+  // console.log(client, "client");
+  console.log(genre, "genre");
   let sendPhotos = await client
     .db("portfolio_images")
     .collection("images")
-    .find({})
-    // .find({ genre: genre }) //USE THIS
+    .find({ genre: genre }) //USE THIS
     .toArray();
   return sendPhotos;
+  // console.log(sendPhotos, "sendPhotos");
 }
 async function fetchMongo(genreName) {
   //loops thru array and uploads image src to MongoDB
   try {
     await constants.client.connect();
-    dbResults = await findObject(constants.client, genreName);
+    let dbResults = await findObject(constants.client, genreName);
 
     return dbResults;
   } catch (e) {
@@ -48,8 +50,7 @@ async function fetchMongo(genreName) {
     await constants.client.close();
   }
 }
-
-// const photoActions = require("./uploadDownload.js");
+// fetchMongo("travel");
 
 app.use(
   cors({
