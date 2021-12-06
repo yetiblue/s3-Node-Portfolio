@@ -6,7 +6,7 @@ function photoGrid(props) {
   const listPhotos = props.photoList.map((photo) => (
     <li className="photoWrapper__li">
       <img src={photo.src} />
-      <h6> Sample TExt </h6>
+      <h6> {photo.text}}</h6>
     </li>
   ));
   return (
