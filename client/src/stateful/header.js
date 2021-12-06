@@ -74,7 +74,7 @@ class Header extends React.Component {
 
         <div className="header">
           <div className="header__site-title">
-            <h1>Sample Text</h1>
+            <h1>Timmy Zhou</h1>
           </div>
           <div className="hamburger">
             <button onClick={this.openSidebar.bind(this)} className="drawerBtn">

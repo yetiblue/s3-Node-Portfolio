@@ -1,17 +1,29 @@
-.photoWrapper {
-  display: flex;
+/* body {
+  background: #ffff;
+} */
+
+.photoText {
+  position: absolute;
+  margin-left: 3em;
+}
+/* .photoWrapper {
+  width: 50%;
+  margin-left: 25%;
+  display: grid;
   flex-wrap: wrap;
   box-sizing: border-box;
   padding-right: 3em;
   max-height: 100%;
-}
+  grid-template-columns: 400px 400px;
+} */
 
 .photoWrapper__li {
   box-sizing: border-box;
   padding: 0.5em;
-  height: 60vh;
-  flex-grow: 1;
+  height: 50vh;
+  flex-grow: none;
   list-style-type: none;
+  /* border: 1px solid white; */
 }
 
 .photoWrapper__li:last-child {
@@ -20,8 +32,8 @@
 
 img {
   max-height: 100%;
-  min-width: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  /* object-fit: cover; */
   vertical-align: bottom;
 }
 

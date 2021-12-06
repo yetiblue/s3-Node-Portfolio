@@ -1,6 +1,7 @@
 import Header from "../stateful/header.js";
-import "./PhotographyGenres.css";
-import PhotoGrid from "../stateless/PhotoGrid.js";
+import "./header.css";
+
+import PhotoMenu from "../stateless/PhotoMenu.js";
 import React from "react";
 import axios from "axios";
 
@@ -11,21 +12,28 @@ class Photography extends React.Component {
       menuItems: [
         {
           text: "Urban",
+          url: "urban",
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC00122-2.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC00123.jpg",
         },
         {
           text: "Landscape",
+          url: "landscape",
+
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/landscape/DSC09532.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC09563.jpg",
         },
         {
           text: "Pastel",
+          url: "pastel",
+
           src:
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/pastel/facades.png",
         },
         {
           text: "Travel",
+          url: "travel",
+
           src:
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/travel/DSC09598.jpg",
         },
@@ -40,7 +48,7 @@ class Photography extends React.Component {
     return (
       <div>
         <Header />
-        <PhotoGrid photoList={this.state.menuItems} />
+        <PhotoMenu photoList={this.state.menuItems} />
       </div>
     );
   }
