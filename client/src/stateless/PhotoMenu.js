@@ -19,8 +19,8 @@ function photoMenu(props) {
     </li>
   ));
   return (
-    <div className="wrapper">
-      <ul className="photoWrapper">{listPhotos}</ul>
+    <div className="menu">
+      <ul className="menuWrapper">{listPhotos}</ul>
     </div>
   );
 }

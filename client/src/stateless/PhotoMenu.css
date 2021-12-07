@@ -1,12 +1,15 @@
 /* body {
   background: #ffff;
 } */
-
+.menu {
+  background: white;
+}
 .photoText {
   position: absolute;
-  margin-left: 3em;
+  margin-left: 2em;
+  font-size: 24px;
 }
-/* .photoWrapper {
+.menuWrapper {
   width: 50%;
   margin-left: 25%;
   display: grid;
@@ -15,7 +18,7 @@
   padding-right: 3em;
   max-height: 100%;
   grid-template-columns: 400px 400px;
-} */
+}
 
 .photoWrapper__li {
   box-sizing: border-box;
