@@ -14,7 +14,7 @@ function photoMenu(props) {
       <Link to={`/photography/${photo.url}`}>
         <h6 className="photoText"> {photo.text}</h6>
 
-        <img src={photo.src} />
+        <img className="image" src={photo.src} />
       </Link>
     </li>
   ));

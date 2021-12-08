@@ -16,13 +16,7 @@ class Photography extends React.Component {
           src:
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC00123.jpg",
         },
-        {
-          text: "Landscape",
-          url: "landscape",
 
-          src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC09563.jpg",
-        },
         {
           text: "Pastel",
           url: "pastel",
@@ -36,6 +30,13 @@ class Photography extends React.Component {
 
           src:
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/travel/DSC09598.jpg",
+        },
+        {
+          text: "Landscape",
+          url: "landscape",
+
+          src:
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC09563.jpg",
         },
       ],
     };
