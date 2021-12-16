@@ -5,8 +5,8 @@ import "./index.css";
 import GalleryPage from "./pages/GalleryPage.js";
 import Photography from "./pages/Photography";
 import Generative from "./pages/Generative.js";
-
-import About from "./stateless/About.js";
+import ContactPage from "./pages/ContactPage.js";
+import AboutPage from "./pages/AboutPage.js";
 import HomePage from "./pages/HomePage.js";
 // import PhotoGrid from "./stateless/PhotoGrid.js";
 import reportWebVitals from "./reportWebVitals";
@@ -17,8 +17,9 @@ ReactDOM.render(
     <div className="app">
       <Router>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/work" component={About} />
+        <Route exact path="/about" component={AboutPage} />
+        <Route exact path="/contact" component={ContactPage} />
+
         <Route exact path="/uploadimage" component={FileUpload} />
         <Route exact path="/photography" component={Photography} />
         <Route exact path="/photography/:id" component={GalleryPage} />
