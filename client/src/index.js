@@ -7,7 +7,7 @@ import Photography from "./pages/Photography";
 import Generative from "./pages/Generative.js";
 
 import About from "./stateless/About.js";
-import Header from "./stateful/header.js";
+import HomePage from "./pages/HomePage.js";
 // import PhotoGrid from "./stateless/PhotoGrid.js";
 import reportWebVitals from "./reportWebVitals";
 import FileUpload from "./stateful/FileUpload.js";
@@ -16,7 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <div className="app">
       <Router>
-        <Route exact path="/" component={Header} />
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/about" component={About} />
         <Route exact path="/work" component={About} />
         <Route exact path="/uploadimage" component={FileUpload} />

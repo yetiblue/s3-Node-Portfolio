@@ -10,10 +10,29 @@ class GenreItems extends React.Component {
     super(props);
     console.log(props, "thsprops");
     this.state = {
-      generativeItems: [],
+      generativeItems: [
+        {
+          text: "Stills",
+          urlBase: "generative", //passes this as the base url after domain to the child component for <link> usage
+
+          url: "stills",
+          src:
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC00123.jpg",
+        },
+
+        {
+          text: "Videos",
+          url: "videos",
+          urlBase: "generative",
+
+          src:
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/pastel/facades.png",
+        },
+      ],
       menuItems: [
         {
           text: "Urban",
+          urlBase: "photography",
           url: "urban",
           src:
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC00123.jpg",
@@ -22,6 +41,7 @@ class GenreItems extends React.Component {
         {
           text: "Pastel",
           url: "pastel",
+          urlBase: "photography",
 
           src:
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/pastel/facades.png",
@@ -29,6 +49,7 @@ class GenreItems extends React.Component {
         {
           text: "Travel",
           url: "travel",
+          urlBase: "photography",
 
           src:
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/travel/DSC09598.jpg",
@@ -36,6 +57,7 @@ class GenreItems extends React.Component {
         {
           text: "Landscape",
           url: "landscape",
+          urlBase: "photography",
 
           src:
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC09563.jpg",

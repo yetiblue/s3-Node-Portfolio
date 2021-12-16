@@ -74,7 +74,11 @@ class Header extends React.Component {
 
         <div className="header">
           <div className="header__site-title">
-            <Link className="logo_nav" to="/">
+            <Link
+              className="logo_nav"
+              style={{ textDecoration: "none", color: "black" }}
+              to="/"
+            >
               <h1>Timmy Zhou</h1>
             </Link>
           </div>
