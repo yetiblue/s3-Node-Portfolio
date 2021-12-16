@@ -19,6 +19,7 @@ async function main() {
     photoArray.splice(0, 1); //the uri for the object/folder instead of the image is included as the first item
     for (let i = 0; i < photoArray.length; i++) {
       console.log(photoArray[i]);
+      console.log(photoArray, "full photoarray");
       await createObject(constants.client, photoArray[i]);
     }
   } catch (e) {

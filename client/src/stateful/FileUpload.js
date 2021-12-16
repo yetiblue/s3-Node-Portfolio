@@ -19,7 +19,7 @@ class FileUpload extends React.Component {
     let files = event.currentTarget.files;
     console.log(files, "files");
     let fileArray = [];
-    let photoObject = [];
+    // let photoObject = [];
 
     if (!files.length) return;
 
@@ -92,6 +92,8 @@ class FileUpload extends React.Component {
             <option value="urban"> Urban </option>
             <option value="pastel"> Pastel </option>
             <option value="travel"> Travel </option>
+            <option value="stills"> Stills </option>
+            <option value="videos"> Videos </option>
           </select>
         </div>
         // After uploading multiple files, click Submit.

@@ -24,7 +24,7 @@ ReactDOM.render(
         <Route exact path="/photography/:id" component={GalleryPage} />
 
         <Route exact path="/generative" component={Generative} />
-        <Route exact path="/generative/:id" component={Generative} />
+        <Route exact path="/generative/:id" component={GalleryPage} />
 
         {/* <Route exact path="/urban" component={GalleryPage} /> */}
       </Router>
