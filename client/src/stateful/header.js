@@ -54,11 +54,11 @@ class Header extends React.Component {
             </li>
 
             <li className="sidebar__li">
-              <Link className="sidebar__link" to="/">
+              <Link className="sidebar__link" to="/contact">
                 Contact
               </Link>
             </li>
-            <ul className="dropdown__hover" to="/work">
+            <ul className="dropdown__hover">
               Work ▾
               <li className="dropdown__li">
                 <Link className="dropdown__item" to="/photography">
@@ -74,7 +74,13 @@ class Header extends React.Component {
 
         <div className="header">
           <div className="header__site-title">
-            <h1>Sample Text</h1>
+            <Link
+              className="logo_nav"
+              style={{ textDecoration: "none", color: "black" }}
+              to="/"
+            >
+              <h1>Timmy Zhou</h1>
+            </Link>
           </div>
           <div className="hamburger">
             <button onClick={this.openSidebar.bind(this)} className="drawerBtn">
@@ -88,7 +94,7 @@ class Header extends React.Component {
                 About
               </Link>
               <ul className="dropdown">
-                <ul className="dropdown__hover" to="/work">
+                <ul className="dropdown__hover">
                   Work ▾
                   <li className="dropdown__li">
                     <Link className="dropdown__item" to="/photography">
@@ -100,7 +106,7 @@ class Header extends React.Component {
                   </li>
                 </ul>
               </ul>
-              <Link className="navbar__link" to="/">
+              <Link className="navbar__link" to="/contact">
                 Contact
               </Link>
             </ul>

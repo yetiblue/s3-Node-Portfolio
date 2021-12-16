@@ -9,15 +9,17 @@ async function createObject(client, newObject) {
     .db("portfolio_images")
     .collection("images")
     .insertOne(newObject);
-  // console.log(`new object created with the following id: ${result.insertedId}`);
+  console.log(`new object created with the following id: ${result.insertedId}`);
 }
 async function main() {
   //loops thru array and uploads image src to MongoDB
   try {
     await constants.client.connect();
+    console.log("main connected");
     photoArray.splice(0, 1); //the uri for the object/folder instead of the image is included as the first item
     for (let i = 0; i < photoArray.length; i++) {
       console.log(photoArray[i]);
+      console.log(photoArray, "full photoarray");
       await createObject(constants.client, photoArray[i]);
     }
   } catch (e) {

@@ -2,12 +2,14 @@
   /* position: fixed; */
   box-sizing: border-box;
   position: relative;
-  background: white;
+  background-color: white;
   width: 100%;
   display: flex;
   padding: 3em;
 }
-
+.logo-nav {
+  text-decoration: none;
+}
 .header__site-title {
   padding-left: 4em;
   color: black;
@@ -60,7 +62,8 @@
   text-decoration: none;
   padding-right: 1em;
   padding: 1em;
-  padding-left: 0;
+  padding-left: 0.3em;
+  background-color: white;
 }
 
 .dropdown__hover {

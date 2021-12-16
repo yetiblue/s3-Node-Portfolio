@@ -7,7 +7,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import cors from "cors";
 import fs from "fs";
-import constants from "constants";
+import * as constants from "./constants.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
@@ -26,20 +26,22 @@ const port = 4000;
 
 app.use(bodyParser.json());
 
-async function findObject(client) {
+async function findObject(client, genre) {
+  // console.log(client, "client");
+  console.log(genre, "genre");
   let sendPhotos = await client
     .db("portfolio_images")
     .collection("images")
-    .find({})
+    .find({ genre: genre }) //USE THIS
     .toArray();
-  //sort with the genre name?
   return sendPhotos;
+  // console.log(sendPhotos, "sendPhotos");
 }
 async function fetchMongo(genreName) {
   //loops thru array and uploads image src to MongoDB
   try {
     await constants.client.connect();
-    dbResults = await findObject(constants.client);
+    let dbResults = await findObject(constants.client, genreName);
 
     return dbResults;
   } catch (e) {
@@ -48,8 +50,7 @@ async function fetchMongo(genreName) {
     await constants.client.close();
   }
 }
-
-// const photoActions = require("./uploadDownload.js");
+// fetchMongo("travel");
 
 app.use(
   cors({
@@ -59,10 +60,13 @@ app.use(
 app.use(express.static(path.join(__dirname))); //for s3 JS files
 // console.log(path.join(__dirname + "../"));
 
-app.get("/route1", (req, res, err) => {
+app.get("/getPhotos/:id", (req, res, err) => {
+  let id = req.params.id;
+  console.log(id, "req id");
+  //id = urban or pastel or landscape etc. Id then passed to fetchMongo
   res.locals.error = err;
   const status = err.status || "200";
-  fetchMongo()
+  fetchMongo(id)
     .then((items) => {
       res.status(200).send(items);
     })
@@ -70,7 +74,7 @@ app.get("/route1", (req, res, err) => {
       console.log(err);
     });
 });
-app.post("/uploadphotos", upload.array("files", 10), async (req, res, err) => {
+app.post("/uploadphotos", upload.array("files", 20), async (req, res, err) => {
   res.sendStatus(200);
 
   var paths = req.files.map((file) => file.path);

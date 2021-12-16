@@ -2,22 +2,32 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./index.css";
-import App from "./App.js";
-import About from "./stateless/About.js";
-// import GalleryPage from "./pages/GalleryPage.js";
-import Header from "./stateful/header.js";
-import PhotoGrid from "./stateless/PhotoGrid.js";
+import GalleryPage from "./pages/GalleryPage.js";
+import Photography from "./pages/Photography";
+import Generative from "./pages/Generative.js";
+import ContactPage from "./pages/ContactPage.js";
+import AboutPage from "./pages/AboutPage.js";
+import HomePage from "./pages/HomePage.js";
+// import PhotoGrid from "./stateless/PhotoGrid.js";
 import reportWebVitals from "./reportWebVitals";
-import FileUpload from "./stateless/FileUpload.js";
+import FileUpload from "./stateful/FileUpload.js";
 
 ReactDOM.render(
   <React.StrictMode>
     <div className="app">
       <Router>
-        <Route exact path="/" component={Header} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/work" component={About} />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/about" component={AboutPage} />
+        <Route exact path="/contact" component={ContactPage} />
+
         <Route exact path="/uploadimage" component={FileUpload} />
+        <Route exact path="/photography" component={Photography} />
+        <Route exact path="/photography/:id" component={GalleryPage} />
+
+        <Route exact path="/generative" component={Generative} />
+        <Route exact path="/generative/:id" component={GalleryPage} />
+
+        {/* <Route exact path="/urban" component={GalleryPage} /> */}
       </Router>
     </div>
   </React.StrictMode>,
