@@ -1,14 +1,16 @@
-import Header from "../stateful/header.js";
+import Header from "./header.js";
 import "./header.css";
 
 import PhotoMenu from "../stateless/PhotoMenu.js";
 import React from "react";
 import axios from "axios";
 
-class Photography extends React.Component {
-  constructor() {
-    super();
+class GenreItems extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(props, "thsprops");
     this.state = {
+      generativeItems: [],
       menuItems: [
         {
           text: "Urban",
@@ -45,13 +47,19 @@ class Photography extends React.Component {
   // }
 
   render() {
-    console.log(this.state.menuItems);
+    let displayMenu;
+    let isGenerative = this.props.photoOrGenerative;
+    if (!isGenerative) {
+      displayMenu = <PhotoMenu photoList={this.state.menuItems} />;
+    } else {
+      displayMenu = <PhotoMenu photoList={this.state.generativeItems} />;
+    }
     return (
       <div>
         <Header />
-        <PhotoMenu photoList={this.state.menuItems} />
+        {displayMenu}
       </div>
     );
   }
 }
-export default Photography;
+export default GenreItems;

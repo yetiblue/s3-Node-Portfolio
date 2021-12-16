@@ -1,8 +1,10 @@
-import PhotographyGenres from "../stateful/PhotographyGenres.js";
+import GenrePage from "../stateful/GenrePage.js";
 function Photography() {
+  const isGenerative = false;
+
   return (
     <div>
-      <PhotographyGenres />
+      <GenrePage photoOrGenerative={isGenerative} />
     </div>
   );
 }

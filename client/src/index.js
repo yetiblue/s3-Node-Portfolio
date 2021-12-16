@@ -8,7 +8,7 @@ import Generative from "./pages/Generative.js";
 
 import About from "./stateless/About.js";
 import Header from "./stateful/header.js";
-import PhotoGrid from "./stateless/PhotoGrid.js";
+// import PhotoGrid from "./stateless/PhotoGrid.js";
 import reportWebVitals from "./reportWebVitals";
 import FileUpload from "./stateful/FileUpload.js";
 
@@ -24,6 +24,7 @@ ReactDOM.render(
         <Route exact path="/photography/:id" component={GalleryPage} />
 
         <Route exact path="/generative" component={Generative} />
+        <Route exact path="/generative/:id" component={Generative} />
 
         {/* <Route exact path="/urban" component={GalleryPage} /> */}
       </Router>

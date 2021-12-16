@@ -7,7 +7,9 @@
   display: flex;
   padding: 3em;
 }
-
+.logo-nav {
+  text-decoration: none;
+}
 .header__site-title {
   padding-left: 4em;
   color: black;
