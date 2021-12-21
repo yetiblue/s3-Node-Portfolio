@@ -55,7 +55,7 @@ class GenreItems extends React.Component {
           urlBase: "photography",
 
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/travel/DSC09598.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/travel/DSC09264.jpg",
         },
         {
           id: 3,
