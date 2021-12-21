@@ -1,8 +1,6 @@
 import "./PhotoGrid.css";
-
-function photoGrid(props) {
-  // const photos = [
-  // ];
+import React, { useState } from "react";
+function PhotoGrid(props) {
   const listPhotos = props.photoList.map((photo) => (
     <li className="photoWrapper__li">
       <img src={photo.src} />
@@ -15,4 +13,4 @@ function photoGrid(props) {
     </div>
   );
 }
-export default photoGrid;
+export default PhotoGrid;
