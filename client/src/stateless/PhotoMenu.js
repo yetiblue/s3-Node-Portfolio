@@ -16,6 +16,7 @@ function PhotoMenu(props) {
   const [photoID, setPhotoID] = useState(0);
   console.log(modalOpen, "modalopen");
   const passPhotosToModal = props.photoList;
+
   const listPhotos = props.photoList.map((photo) => (
     <li className="photoWrapper__li">
       {/* <Link to={`/${photo.urlBase}/${photo.url}`}>
@@ -37,7 +38,11 @@ function PhotoMenu(props) {
   if (!modalOpen) {
   } else {
     renderModal = (
-      <PhotoModal modalPhotos={passPhotosToModal} targetID={photoID} />
+      <PhotoModal
+        closeModal={[modalOpen, setModalOpen]}
+        modalPhotos={passPhotosToModal}
+        targetID={photoID}
+      />
     );
   }
   return (

@@ -9,6 +9,7 @@ class PhotoModal extends React.Component {
     };
     this.previous = this.previous.bind(this);
     this.next = this.next.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
   componentDidMount() {
     this.setState({ currentCount: this.props.targetID }); //targetID is the ID of the image clicked in the gallery
@@ -33,14 +34,21 @@ class PhotoModal extends React.Component {
       await this.setState({ currentCount: 0 });
     }
   }
+  closeModal() {
+    let [data, setData] = this.props.closeModal;
+    setData(!data);
+  }
   render() {
     let photoList = this.props.modalPhotos;
+
     console.log(this.state.currentCount, "current count");
     console.log(photoList[0].src, "photolist on modal comp");
 
     return (
       <div className="modal">
-        <button className="exit">X</button>
+        <button onClick={this.closeModal} className="exit">
+          X
+        </button>
         <button className="prevButton" onClick={this.previous}>
           ←
         </button>
