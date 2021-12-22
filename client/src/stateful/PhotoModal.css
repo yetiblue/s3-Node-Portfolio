@@ -1,9 +1,15 @@
 .content {
   /* background-color: white; */
   margin-left: 10%;
-  width: 80%;
+  max-width: 80%;
   height: 90%;
   padding: 20px;
+  z-index: 10;
+}
+.exit-click-region {
+  height: 90%;
+  width: 100%;
+  margin-top: -52em;
 }
 .exit {
   margin-left: 90%;
@@ -11,6 +17,7 @@
   width: 5%;
   height: 5%;
   border: 1px solid red;
+  /* display: none; */
 }
 .lightboxImage {
   /* max-width: 100%;
@@ -19,10 +26,16 @@
 }
 .modal {
   z-index: 5;
-  margin-top: -10em;
+  margin-top: -9.3em;
 
   position: fixed;
   background-color: black;
   height: 100%;
   width: 100%;
+}
+.prevButton {
+  z-index: 10;
+}
+.nextButton {
+  z-index: 10;
 }

@@ -14,24 +14,24 @@ class PhotoModal extends React.Component {
   componentDidMount() {
     this.setState({ currentCount: this.props.targetID }); //targetID is the ID of the image clicked in the gallery
   }
-  async previous() {
+  previous() {
     console.log("called previous", this.state.currentCount);
     if (this.state.currentCount > 0) {
-      await this.setState((prevState) => ({
+      this.setState((prevState) => ({
         currentCount: prevState.currentCount - 1,
       }));
     } else {
-      await this.setState({ currentCount: this.props.modalPhotos.length - 1 });
+      this.setState({ currentCount: this.props.modalPhotos.length - 1 });
     }
   }
-  async next() {
+  next() {
     console.log("called next", this.state.currentCount);
     if (this.state.currentCount < this.props.modalPhotos.length - 1) {
-      await this.setState((prevState) => ({
+      this.setState((prevState) => ({
         currentCount: prevState.currentCount + 1,
       }));
     } else {
-      await this.setState({ currentCount: 0 });
+      this.setState({ currentCount: 0 });
     }
   }
   closeModal() {
@@ -55,12 +55,14 @@ class PhotoModal extends React.Component {
         <button className="nextButton" onClick={this.next}>
           →
         </button>
+
         <div className="content">
           <img
             className="lightboxImage"
             src={photoList[this.state.currentCount].src}
           />
         </div>
+        <div onClick={this.closeModal} className="exit-click-region"></div>
       </div>
     );
   }

@@ -15,6 +15,11 @@ function PhotoMenu(props) {
   const [modalOpen, setModalOpen] = useState(false);
   const [photoID, setPhotoID] = useState(0);
   console.log(modalOpen, "modalopen");
+  if (modalOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "visible";
+  }
   const passPhotosToModal = props.photoList;
 
   const listPhotos = props.photoList.map((photo) => (
