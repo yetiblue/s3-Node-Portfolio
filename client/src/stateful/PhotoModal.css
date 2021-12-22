@@ -1,0 +1,28 @@
+.content {
+  /* background-color: white; */
+  margin-left: 10%;
+  width: 80%;
+  height: 90%;
+  padding: 20px;
+}
+.exit {
+  margin-left: 90%;
+  z-index: 2;
+  width: 5%;
+  height: 5%;
+  border: 1px solid red;
+}
+.lightboxImage {
+  /* max-width: 100%;
+  max-height: 100%; */
+  object-fit: contain;
+}
+.modal {
+  z-index: 5;
+  margin-top: -10em;
+
+  position: fixed;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}

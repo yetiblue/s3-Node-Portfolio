@@ -39,10 +39,20 @@ class PhotoModal extends React.Component {
     console.log(photoList[0].src, "photolist on modal comp");
 
     return (
-      <div>
-        <img src={photoList[this.state.currentCount].src} />
-        <button onClick={this.previous}> ← </button>
-        <button onClick={this.next}> → </button>
+      <div className="modal">
+        <button className="exit">X</button>
+        <button className="prevButton" onClick={this.previous}>
+          ←
+        </button>
+        <button className="nextButton" onClick={this.next}>
+          →
+        </button>
+        <div className="content">
+          <img
+            className="lightboxImage"
+            src={photoList[this.state.currentCount].src}
+          />
+        </div>
       </div>
     );
   }
