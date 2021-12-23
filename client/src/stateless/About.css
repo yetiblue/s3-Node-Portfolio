@@ -1,0 +1,38 @@
+.about-content {
+  max-height: 100%;
+  border: 1px solid white;
+  margin-top: -2em;
+  background-color: white;
+}
+.about-header {
+  margin: 2em;
+  margin-left: 9em;
+}
+.columns {
+  display: grid;
+  max-width: 80%;
+  margin-left: 15em;
+  /* max-height: 100%; */
+  grid-template-columns: 1fr 1fr;
+}
+.columns-contact__text {
+  font-size: 0.8em;
+}
+.columns__portrait {
+  background-color: white;
+  max-width: 80%;
+}
+.columns__portrait-image {
+  object-fit: contain;
+  max-width: 100%;
+  padding: 3em;
+  margin-top: -3em;
+}
+.columns__text {
+  margin-top: -1em;
+  background-color: white;
+  color: black;
+  padding: 2em;
+  font-size: 1.1em;
+  line-height: 1.8;
+}

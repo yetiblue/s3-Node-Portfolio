@@ -5,7 +5,7 @@ function HomePage() {
   return (
     <div>
       <Header />
-      <video width="1600" height="800" controls autoplay>
+      <video width="1600" height="800" controls autoPlay>
         <source
           //   src="https://timmyportfolio.s3.us-east-2.amazonaws.com/generative/spikeyplant.mov"
           src="https://timmyportfolio.s3.us-east-2.amazonaws.com/generative/FlowField.mov"

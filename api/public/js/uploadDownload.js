@@ -81,7 +81,7 @@ export function viewAlbum(albumName) {
       let randomID = (Math.random() + 1).toString(36).substring(7);
       console.log(randomID, "randomId");
       photoArray.push({
-        _id: randomID,
+        // _id: randomID,
         src: photoUrl,
         genre: albumName,
       }); //include param from above that gets filled with the collection name which would be added to tag: key
