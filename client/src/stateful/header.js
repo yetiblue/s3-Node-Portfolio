@@ -53,11 +53,11 @@ class Header extends React.Component {
               </Link>
             </li>
 
-            <li className="sidebar__li">
+            {/* <li className="sidebar__li">
               <Link className="sidebar__link" to="/contact">
                 Contact
               </Link>
-            </li>
+            </li> */}
             <ul className="dropdown__hover">
               Work ▾
               <li className="dropdown__li">
@@ -106,9 +106,9 @@ class Header extends React.Component {
                   </li>
                 </ul>
               </ul>
-              <Link className="navbar__link" to="/contact">
+              {/* <Link className="navbar__link" to="/contact">
                 Contact
-              </Link>
+              </Link> */}
             </ul>
           </div>
         </div>

@@ -12,31 +12,32 @@ function About() {
         </div>
         <div className="columns__text">
           <p>
-            Tyler Hobbs is a visual artist from Austin, Texas who works
-            primarily with algorithms, plotters, and paint. His artwork focuses
-            on computational aesthetics, how they are shaped by the biases of
-            modern computer hardware and software, and how they relate to and
-            interact with the natural world around us. Tyler develops and
-            programs custom algorithms that are used to generate visual imagery.
-            Often, these strike a balance between the cold, hard structure that
-            computers excel at, and the messy, organic chaos we can observe in
-            the natural world around us. Tyler’s work has been shown
-            internationally, and has been collected in more than a dozen
-            countries around the world. For collaborations, custom requests, or
-            general inquiries please feel free to reach out any time.
+            Timmy Zhou is a multi-disciplinary creator based in New York City.
+            He is mainly focused on developing fullstack web applications, such
+            as this portfolio site. In his free time, he dabbles artistically
+            with photography around the city, and more recently has started
+            producing generative art beginning with the 100 Days of Generative
+            Art Project. He is currently a Junior at NYU's Interactive Media
+            Arts program, and maintains a blog chronicling his adventures with
+            Ultrarunning, life lessons and software documentation.
           </p>
           <div className="columns-contact">
             <h3>Get in Touch</h3>
-            <p className="columns-contact__text">Email:</p>
+            <p className="columns-contact__text">Email: tz1343@nyu.edu</p>
             <p className="columns-contact__text">
               Instagram:{" "}
-              <a href="https://www.instagram.com/hy_tiide/" target="_blank">
+              <a
+                className="social-links"
+                href="https://www.instagram.com/hy_tiide/"
+                target="_blank"
+              >
                 @hy_tiide
               </a>
             </p>
             <p className="columns-contact__text">
               Art:{" "}
               <a
+                className="social-links"
                 href="https://www.instagram.com/100daysofgenart/"
                 target="_blank"
               >
@@ -45,7 +46,11 @@ function About() {
             </p>
             <p className="columns-contact__text">
               Blog:{" "}
-              <a href="https://medium.com/knowledge-foundation" target="_blank">
+              <a
+                className="social-links"
+                href="https://medium.com/knowledge-foundation"
+                target="_blank"
+              >
                 Medium
               </a>
             </p>

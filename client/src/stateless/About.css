@@ -17,6 +17,8 @@
 }
 .columns-contact__text {
   font-size: 0.8em;
+  color: black;
+  text-decoration: none;
 }
 .columns__portrait {
   background-color: white;
@@ -34,5 +36,9 @@
   color: black;
   padding: 2em;
   font-size: 1.1em;
-  line-height: 1.8;
+  line-height: 2.2;
+}
+.social-links {
+  color: black;
+  /* text-decoration: none; */
 }
