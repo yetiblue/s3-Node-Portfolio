@@ -12,17 +12,22 @@
   margin-top: -52em;
 }
 .exit {
-  margin-left: 90%;
+  margin-left: 95%;
   z-index: 2;
-  width: 5%;
-  height: 5%;
-  border: 1px solid red;
+  max-width: 5%;
+  max-height: 10%;
+  position: absolute;
+  margin-top: 2em;
+
   /* display: none; */
+}
+.exit:hover {
+  cursor: pointer;
 }
 .lightboxImage {
   /* max-width: 100%;
   max-height: 100%; */
-  margin-top: -1.3em;
+  margin-top: 1.3em;
   z-index: 5;
   position: relative;
   object-fit: contain;
@@ -38,13 +43,19 @@
 }
 .prevButton {
   z-index: 11;
-  margin-left: -115em;
+  margin-left: 4em;
   position: absolute;
-  margin-top: 35em;
+  margin-top: 27.5em;
 }
 .nextButton {
   position: absolute;
   z-index: 10;
-  /* margin-left: 115em; */
-  margin-top: 35em;
+  margin-left: 98em;
+  margin-top: 27.5em;
+}
+.nextButton:hover {
+  border: 0.2px solid white;
+}
+.prevButton:hover {
+  border: 0.2px solid white;
 }
