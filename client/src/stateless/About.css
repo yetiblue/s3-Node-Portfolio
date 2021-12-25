@@ -1,12 +1,12 @@
 .about-content {
   max-height: 100%;
-  border: 1px solid white;
   margin-top: -2em;
-  background-color: white;
+  background-color: black;
 }
 .about-header {
   margin: 2em;
   margin-left: 7em;
+  color: white;
 }
 .columns {
   display: grid;
@@ -17,12 +17,13 @@
 }
 .columns-contact__text {
   font-size: 0.8em;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 .columns__portrait {
   background-color: white;
   max-width: 80%;
+  background-color: black;
 }
 .columns__portrait-image {
   object-fit: contain;
@@ -33,13 +34,14 @@
 .columns__text {
   margin-top: -1em;
   background-color: white;
-  color: black;
+  color: white;
   padding: 2em;
   font-size: 1.1em;
   line-height: 2.2;
+  background-color: black;
 }
 .social-links {
-  color: black;
+  color: white;
   /* text-decoration: none; */
 }
 @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
@@ -53,11 +55,11 @@
   .columns__text {
     margin-top: -1em;
     margin-left: 3em;
-    background-color: white;
-    color: black;
+    color: white;
     padding: 0.5em;
     font-size: 1.1em;
     line-height: 2.2;
+    background-color: black;
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {

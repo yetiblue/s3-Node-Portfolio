@@ -7,7 +7,8 @@ function About() {
         <div className="columns__portrait">
           <img
             className="columns__portrait-image"
-            src="https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC09563.jpg"
+            // src="https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC09563.jpg"
+            src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC00129-2.jpg"
           />
         </div>
         <div className="columns__text">
