@@ -1,0 +1,33 @@
+.home-video {
+  background: rgba(0, 0, 0, 0.4);
+  margin-top: -20em;
+  /* position: fixed; */
+  max-height: 1080px;
+  max-width: 1920px;
+  background-attachment: fixed;
+}
+.header__site-title-home {
+  background-color: black;
+  position: sticky;
+  font-size: 1.5em;
+  margin-top: -70em;
+  margin-left: 2em;
+  color: white;
+  padding: 0.1em;
+}
+.bottom-nav {
+  color: white;
+  background-color: black;
+  position: absolute;
+  display: flex;
+  flex: 1 1 auto;
+  margin-left: 80em;
+  margin-top: 45em;
+}
+.bottom-nav__link {
+  padding: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  list-style-type: none;
+  text-decoration: none;
+}
