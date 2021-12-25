@@ -1,14 +1,43 @@
 import "./PhotoGrid.css";
+import PhotoModal from "../stateful/PhotoModal.js";
+
 import React, { useState } from "react";
 function PhotoGrid(props) {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [photoID, setPhotoID] = useState(0);
+  console.log(modalOpen, "modalopen");
+  if (modalOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "visible";
+  }
+  const passPhotosToModal = props.photoList;
   const listPhotos = props.photoList.map((photo) => (
     <li className="photoWrapper__li">
-      <img src={photo.src} />
+      <img
+        onClick={() => {
+          setModalOpen(!modalOpen);
+          setPhotoID(photo.id);
+        }}
+        src={photo.src}
+      />
       <h6> {photo.text}</h6>
     </li>
   ));
+  let renderModal;
+  if (!modalOpen) {
+  } else {
+    renderModal = (
+      <PhotoModal
+        closeModal={[modalOpen, setModalOpen]}
+        modalPhotos={passPhotosToModal}
+        targetID={photoID}
+      />
+    );
+  }
   return (
     <div className="wrapper">
+      {renderModal}
       <ul className="photoWrapper">{listPhotos}</ul>
     </div>
   );

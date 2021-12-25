@@ -20,7 +20,7 @@ async function main() {
     for (let i = 0; i < photoArray.length; i++) {
       console.log(photoArray[i]);
       console.log(photoArray, "full photoarray");
-      // await createObject(constants.client, photoArray[i]);
+      await createObject(constants.client, photoArray[i]);
     }
   } catch (e) {
     console.log(e);
@@ -78,15 +78,17 @@ export function viewAlbum(albumName) {
     var photos = data.Contents.map(function(photo) {
       var photoKey = photo.Key; //name of the file in 'data'
       var photoUrl = newBucketUrl + encodeURIComponent(photoKey);
-      let randomID = (Math.random() + 1).toString(36).substring(7);
-      console.log(randomID, "randomId");
+      let incrementID = 0;
       photoArray.push({
-        // _id: randomID,
         src: photoUrl,
         genre: albumName,
       }); //include param from above that gets filled with the collection name which would be added to tag: key
       // console.log(photoArray, ": photoarray");
+      photoArray.forEach((photo, incrementID) => {
+        photo.id = incrementID += 1;
+      });
     });
+
     main().catch(console.error);
   });
 }
