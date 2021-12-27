@@ -12,6 +12,11 @@ function PhotoGrid(props) {
     document.body.style.overflow = "visible";
   }
   const passPhotosToModal = props.photoList;
+  let incrementID = 0;
+  //loop through passPhotostoModal and add in the id here?
+  passPhotosToModal.forEach((photo, incrementID) => {
+    photo.id = incrementID += 1;
+  });
   const listPhotos = props.photoList.map((photo) => (
     <li className="photoWrapper__li">
       <img
