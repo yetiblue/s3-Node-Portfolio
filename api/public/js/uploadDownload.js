@@ -1,14 +1,14 @@
 import fs from "fs";
 import * as constants from "./constants.js";
 
-let photoArray = []; //holding downoaded photos from the s3 bucket
-let previousArray = [];
-let photoArrayComparison = [];
-let previousArraySources = [];
-let filterResult = [];
-let searchGenre; // use in retrieving from Mongo to filter out duplicates.
-let emptyDBEdgeCase; //the first time things run, use the photoArray.
-//after that use filterResult
+let photoArray = []; //downloaded photos from s3 bucket folder (INCLUDES PREVOUS PHOTOS)
+let previousArray = []; //query DB first to see what's already there
+let previousArraySources = []; //stores just the src's from previousArray -> used as a check against photoArray
+let filterResult = []; //filtered version of photoArray without duplicates
+
+let searchGenre; //used to query DB to get values to populate previousArray
+let emptyDBEdgeCase; //if previousArray is empty, this will be true. photoArray will be uploaded to DB instead of filteredResult on the first run
+
 async function createObject(client, newObject) {
   //send photo src to MongoDB
   const result = await client
@@ -18,35 +18,26 @@ async function createObject(client, newObject) {
   console.log(`new object created with the following id: ${result.insertedId}`);
 }
 async function main() {
-  //loops thru array and uploads image src to MongoDB
   try {
     await constants.client.connect();
     console.log("main connected");
+    //populates previousArray with values from DB
     previousArray = await constants.client
       .db("portfolio_images")
       .collection("images")
       .find({ genre: searchGenre })
       .toArray();
     if (previousArray.length == 0) {
-      //check if the DB is empty before everything below runs
       emptyDBEdgeCase = true;
     }
-    console.log(photoArray, "photoarray"); //should have new images
-    previousArray.forEach((u) => {
-      delete u.id;
-      delete u._id;
-    });
-    photoArrayComparison = photoArray;
-    photoArrayComparison.forEach((photo) => {
-      delete photo.id;
-      delete photo._id;
-    });
-    console.log(previousArray, "previous array after");
-    console.log(photoArrayComparison, "photo compairson");
+    console.log(photoArray, "photoarray"); //will include all images from S3 Bucket, including previously submitted ones
 
-    previousArray.forEach((x) => previousArraySources.push(x.src));
+    console.log(previousArray, "previous array"); //old values, used to compare against photoArray. Values here will be filtered out of photoArray
+
+    previousArray.forEach((x) => previousArraySources.push(x.src)); //retrieve just the src's from previousArray
     let selectedSource;
     function containsValue(value) {
+      //callback function for photoArray.filter below
       if (value.src !== selectedSource) {
         return true;
       } else {
@@ -55,20 +46,20 @@ async function main() {
     }
     for (let i = 0; i < previousArraySources.length; i++) {
       selectedSource = previousArraySources[i];
-      filterResult = photoArrayComparison.filter(containsValue);
+      filterResult = photoArray.filter(containsValue);
 
-      photoArrayComparison = filterResult;
+      photoArray = filterResult; //photoArray will shrink recursively with each iteration
     }
     console.log(filterResult, "filter");
 
     if (emptyDBEdgeCase) {
+      //if the DB is empty of a certain genre, send everything in photoArray
       for (let i = 0; i < photoArray.length; i++) {
-        // console.log(photoArray[i]);
-        // console.log(photoArray, "full photoarray");
         await createObject(constants.client, photoArray[i]);
         emptyDBEdgeCase = false;
       }
     } else {
+      //otherwise if DB is not empty, send the values in filteredResult instead because photoArray will have values already in the DB.
       for (let i = 0; i < filterResult.length; i++) {
         console.log(photoArray[i]);
         console.log(photoArray, "full photoarray");
