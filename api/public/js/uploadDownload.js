@@ -14,7 +14,8 @@ async function createObject(client, newObject) {
   const result = await client
     .db("portfolio_images")
     .collection("images")
-    .insertOne(newObject);
+    .insertMany(newObject);
+
   console.log(`new object created with the following id: ${result.insertedId}`);
 }
 async function main() {
@@ -54,17 +55,13 @@ async function main() {
 
     if (emptyDBEdgeCase) {
       //if the DB is empty of a certain genre, send everything in photoArray
-      for (let i = 0; i < photoArray.length; i++) {
-        await createObject(constants.client, photoArray[i]);
-        emptyDBEdgeCase = false;
-      }
+
+      await createObject(constants.client, photoArray);
+      emptyDBEdgeCase = false;
     } else {
       //otherwise if DB is not empty, send the values in filteredResult instead because photoArray will have values already in the DB.
-      for (let i = 0; i < filterResult.length; i++) {
-        console.log(photoArray[i]);
-        console.log(photoArray, "full photoarray");
-        await createObject(constants.client, filterResult[i]);
-      }
+
+      await createObject(constants.client, filterResult);
     }
   } catch (e) {
     console.log(e);
