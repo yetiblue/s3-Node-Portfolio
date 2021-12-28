@@ -1,0 +1,51 @@
+.home-video {
+  background: rgba(0, 0, 0, 0.4);
+  max-width: 100%;
+  object-fit: cover;
+  margin-top: 1.4em;
+  opacity: 0.8;
+}
+.header__site-title-home {
+  background-color: black;
+  max-width: 70%;
+  position: sticky;
+  font-size: 1.5em;
+  margin-top: -37em;
+  margin-left: 2em;
+  color: white;
+  padding: 0.1em;
+  opacity: 0.9;
+}
+.bottom-nav {
+  color: white;
+  background-color: black;
+  position: absolute;
+  display: flex;
+  flex: 1 1 auto;
+  margin-left: 80em;
+  margin-top: 42em;
+  opacity: 0.85;
+}
+.bottom-nav__link {
+  padding: 1em;
+  color: white;
+  font-size: 1.1em;
+  list-style-type: none;
+  text-decoration: none;
+}
+.bottom-nav__link__first {
+  /* padding: 1em; */
+  padding-left: -1.5em;
+  padding-right: 1.2em;
+  color: white;
+  list-style-type: none;
+  text-decoration: none;
+}
+.home__name {
+  padding-left: 1em;
+}
+.videoContainer {
+  min-width: 100%;
+  max-height: 100%;
+  background-color: white;
+}

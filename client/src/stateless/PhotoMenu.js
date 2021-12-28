@@ -1,4 +1,5 @@
 import "./PhotoMenu.css";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,9 +7,7 @@ import {
   Link,
   withRouter,
 } from "react-router-dom";
-function photoMenu(props) {
-  // const photos = [
-  // ];
+function PhotoMenu(props) {
   const listPhotos = props.photoList.map((photo) => (
     <li className="photoWrapper__li">
       <Link to={`/${photo.urlBase}/${photo.url}`}>
@@ -18,10 +17,11 @@ function photoMenu(props) {
       </Link>
     </li>
   ));
+
   return (
     <div className="menu">
       <ul className="menuWrapper">{listPhotos}</ul>
     </div>
   );
 }
-export default photoMenu;
+export default PhotoMenu;

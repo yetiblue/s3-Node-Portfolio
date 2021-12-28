@@ -74,7 +74,7 @@ app.get("/getPhotos/:id", (req, res, err) => {
       console.log(err);
     });
 });
-app.post("/uploadphotos", upload.array("files", 20), async (req, res, err) => {
+app.post("/uploadphotos", upload.array("files", 70), async (req, res, err) => {
   res.sendStatus(200);
 
   var paths = req.files.map((file) => file.path);

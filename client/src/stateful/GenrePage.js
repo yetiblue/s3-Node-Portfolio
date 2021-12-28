@@ -31,6 +31,7 @@ class GenreItems extends React.Component {
       ],
       menuItems: [
         {
+          id: 0,
           text: "Urban",
           urlBase: "photography",
           url: "urban",
@@ -39,6 +40,7 @@ class GenreItems extends React.Component {
         },
 
         {
+          id: 1,
           text: "Pastel",
           url: "pastel",
           urlBase: "photography",
@@ -47,14 +49,16 @@ class GenreItems extends React.Component {
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/pastel/facades.png",
         },
         {
+          id: 2,
           text: "Travel",
           url: "travel",
           urlBase: "photography",
 
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/travel/DSC09598.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/travel/DSC09264.jpg",
         },
         {
+          id: 3,
           text: "Landscape",
           url: "landscape",
           urlBase: "photography",
