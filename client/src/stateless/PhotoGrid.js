@@ -1,8 +1,11 @@
 import "./PhotoGrid.css";
+import { useParams } from "react-router-dom";
+
 import PhotoModal from "../stateful/PhotoModal.js";
 
 import React, { useState } from "react";
 function PhotoGrid(props) {
+  //props from GalleryPage.js component
   const [modalOpen, setModalOpen] = useState(false);
   const [photoID, setPhotoID] = useState(0);
   console.log(modalOpen, "modalopen");
@@ -17,18 +20,41 @@ function PhotoGrid(props) {
   passPhotosToModal.forEach((photo, incrementID) => {
     photo.id = incrementID++;
   });
-  const listPhotos = props.photoList.map((photo) => (
-    <li className="photoWrapper__li">
-      <img
-        onClick={() => {
-          setModalOpen(!modalOpen);
-          setPhotoID(photo.id);
-        }}
-        src={photo.src}
-      />
-      <h6> {photo.text}</h6>
-    </li>
-  ));
+  const params = useParams();
+  console.log(params.id, "params iD");
+  let listPhotos;
+  if (params.id == "videos") {
+    listPhotos = props.photoList.map((photo) => (
+      <li className="photoWrapper__li">
+        <video
+          className="photoWrapper__li"
+          autoPlay
+          loop
+          muted
+          onClick={() => {
+            setModalOpen(!modalOpen);
+            setPhotoID(photo.id);
+          }}
+        >
+          <source src={photo.src}></source>
+        </video>
+        {/* <h6> {photo.text}</h6> */}
+      </li>
+    ));
+  } else {
+    listPhotos = props.photoList.map((photo) => (
+      <li className="photoWrapper__li">
+        <img
+          onClick={() => {
+            setModalOpen(!modalOpen);
+            setPhotoID(photo.id);
+          }}
+          src={photo.src}
+        />
+        {/* <h6> {photo.text}</h6> */}
+      </li>
+    ));
+  }
   let renderModal;
   if (!modalOpen) {
   } else {

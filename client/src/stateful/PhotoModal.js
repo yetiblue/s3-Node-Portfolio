@@ -1,4 +1,6 @@
 import "./PhotoModal.css";
+import { withRouter } from "react-router";
+
 import React from "react";
 
 class PhotoModal extends React.Component {
@@ -40,6 +42,26 @@ class PhotoModal extends React.Component {
   }
   render() {
     let photoList = this.props.modalPhotos;
+    let photoOrVideo;
+    const id = this.props.match.params.id;
+    if (id == "videos") {
+      photoOrVideo = (
+        <video
+          autoPlay
+          loop
+          muted
+          className="lightboxImage"
+          src={photoList[this.state.currentCount].src}
+        />
+      );
+    } else {
+      photoOrVideo = (
+        <img
+          className="lightboxImage"
+          src={photoList[this.state.currentCount].src}
+        />
+      );
+    }
 
     console.log(this.state.currentCount, "current count");
     console.log(photoList[0].src, "photolist on modal comp");
@@ -70,15 +92,10 @@ class PhotoModal extends React.Component {
           />
         </div>
 
-        <div className="content">
-          <img
-            className="lightboxImage"
-            src={photoList[this.state.currentCount].src}
-          />
-        </div>
+        <div className="content">{photoOrVideo}</div>
         <div onClick={this.closeModal} className="exit-click-region"></div>
       </div>
     );
   }
 }
-export default PhotoModal;
+export default withRouter(PhotoModal);
