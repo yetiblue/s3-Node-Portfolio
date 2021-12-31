@@ -38,16 +38,16 @@ class GenreItems extends React.Component {
           src:
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC00123.jpg",
         },
-
         {
-          id: 1,
-          text: "Pastel",
-          url: "pastel",
+          id: 3,
+          text: "Landscape",
+          url: "landscape",
           urlBase: "photography",
 
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC01395+(1).jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC09563.jpg",
         },
+
         {
           id: 2,
           text: "Travel",
@@ -58,13 +58,13 @@ class GenreItems extends React.Component {
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC09598.jpg",
         },
         {
-          id: 3,
-          text: "Landscape",
-          url: "landscape",
+          id: 1,
+          text: "Pastel",
+          url: "pastel",
           urlBase: "photography",
 
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC09563.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC01395+(1).jpg",
         },
       ],
     };

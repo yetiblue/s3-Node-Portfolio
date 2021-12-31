@@ -1,6 +1,5 @@
 import "./PhotoMenu.css";
-import { useParams } from "react-router-dom";
-
+import { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,17 +9,20 @@ import {
 } from "react-router-dom";
 
 function PhotoMenu(props) {
-  const params = useParams();
-  console.log(params.id, "p[aram id");
-  // if (params.id == "generative") {
-  //   document.menuWrapper.style.marginLeft = "25%";
-  // }
+  useEffect(() => {
+    if (window.location.pathname == "/generative") {
+      document.getElementsByClassName("menuWrapper")[0].style.marginLeft =
+        "22%";
+      console.log(document.getElementsByClassName("menuWrapper")[0]);
+    }
+  }, []);
+
+  console.log(window.location.pathname);
   const listPhotos = props.photoList.map((photo) => (
     <li className="photoWrapper__li-menu">
-      <Link to={`/${photo.urlBase}/${photo.url}`}>
-        <h6 className="photoText"> {photo.text}</h6>
-
+      <Link className="photoLink" to={`/${photo.urlBase}/${photo.url}`}>
         <img className="image" src={photo.src} />
+        <h6 className="photoText"> {photo.text}</h6>
       </Link>
     </li>
   ));
