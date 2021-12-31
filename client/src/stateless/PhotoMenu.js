@@ -10,10 +10,29 @@ import {
 
 function PhotoMenu(props) {
   useEffect(() => {
-    if (window.location.pathname == "/generative") {
+    if (window.location.pathname == "/generative" && window.innerWidth > 1312) {
       document.getElementsByClassName("menuWrapper")[0].style.marginLeft =
-        "22%";
-      console.log(document.getElementsByClassName("menuWrapper")[0]);
+        "23%";
+      // document.getElementsByClassName("menuWrapper")[0].style.marginTop = "18%";
+      console.log(window.innerWidth, "width");
+    } else if (
+      window.location.pathname == "/generative" &&
+      window.innerWidth > 312 &&
+      window.innerWidth < 767
+    ) {
+      document.getElementsByClassName("menuWrapper")[0].style.marginLeft =
+        "-7%";
+      // document.getElementsByClassName("menuWrapper")[0].style.marginTop = "18%";
+      console.log(window.innerWidth, "width");
+    } else if (
+      window.location.pathname == "/generative" &&
+      window.innerWidth > 768 &&
+      window.innerWidth < 1024
+    ) {
+      document.getElementsByClassName("menuWrapper")[0].style.marginLeft =
+        "23%";
+      document.getElementsByClassName("menuWrapper")[0].style.marginTop = "18%";
+      console.log(window.innerWidth, "width");
     }
   }, []);
 

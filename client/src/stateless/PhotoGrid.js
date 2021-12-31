@@ -23,7 +23,7 @@ function PhotoGrid(props) {
   const params = useParams();
   console.log(params.id, "params iD");
   let listPhotos;
-  if (params.id == "videos") {
+  if (params.id === "videos") {
     listPhotos = props.photoList.map((photo) => (
       <li className="photoWrapper__li">
         <video

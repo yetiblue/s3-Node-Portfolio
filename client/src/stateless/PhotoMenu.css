@@ -3,7 +3,7 @@
 }
 .photoText {
   position: relative;
-  margin-left: 0.7em;
+  margin-left: 0.8em;
   margin-top: -6.5em;
   text-align: center;
   font-size: 48px;
@@ -43,46 +43,51 @@
 
 .image {
   max-height: 70%;
-  object-fit: contain;
   width: auto;
-  /* filter: blur(2px); */
-
-  /* object-fit: cover; */
 }
 
 @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+  .menu {
+    border: 1px solid white;
+  }
   .photoText {
-    position: absolute;
+    /* position: absolute; */
 
-    /* margin-left: 2.5em; */
-    margin-top: 6em;
+    margin-left: 0.5em;
+    text-align: center;
+    margin-top: -7em;
     font-size: 30px;
     color: black;
   }
   .menuWrapper {
-    /* width: 0%;
-    /* margin-top: -2em; */
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     box-sizing: border-box;
-
-    grid-template-columns: 300px;
+    margin-left: -2em;
+    /* grid-template-columns: 300px; */
   }
   .photoWrapper__li-menu {
     box-sizing: border-box;
     padding: 0.5em;
+    width: 90vw;
+
     height: 50vh;
-    flex-grow: none;
     list-style-type: none;
-    /* border: 1px solid white; */
+  }
+  .image {
+    max-height: 100%;
+    width: auto;
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
   .photoText {
-    position: absolute;
+    /* position: absolute; */
 
     /* margin-left: 2.5em; */
-    margin-top: 6em;
+    margin-top: -8em;
+    text-align: center;
     font-size: 30px;
     color: black;
   }
@@ -92,15 +97,22 @@
     justify-content: center;
     flex-wrap: wrap;
     box-sizing: border-box;
-
+    margin-left: 11em;
     grid-template-columns: 400px 400px;
   }
   .photoWrapper__li-menu {
     box-sizing: border-box;
-    height: 50vh;
+    height: 40vh;
     flex-grow: none;
     list-style-type: none;
-    padding: 3em;
+    padding: 1em;
     /* border: 1px solid white; */
+  }
+  .image {
+    max-height: 100%;
+    width: auto;
+  }
+  .menu {
+    height: 100vh;
   }
 }
