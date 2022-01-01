@@ -10,7 +10,7 @@
   max-width: 70%;
   position: sticky;
   font-size: 1.5em;
-  margin-top: -37em;
+  margin-top: -34em;
   margin-left: 2em;
   color: white;
   padding: 0.1em;
@@ -22,8 +22,8 @@
   position: absolute;
   display: flex;
   flex: 1 1 auto;
-  margin-left: 80em;
-  margin-top: 42em;
+  margin-left: 70em;
+  margin-top: 37em;
   opacity: 0.85;
 }
 .bottom-nav__link {
@@ -49,3 +49,13 @@
   max-height: 100%;
   background-color: white;
 }
+/* @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+  .home-video {
+    background: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    width: auto;
+    object-fit: cover;
+    margin-top: 1.4em;
+    opacity: 0.8;
+  }
+} */

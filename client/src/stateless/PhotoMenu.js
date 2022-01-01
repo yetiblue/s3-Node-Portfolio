@@ -10,10 +10,11 @@ import {
 
 function PhotoMenu(props) {
   useEffect(() => {
+    //using hook to retrieve the '/generative' part, or else on first load, window.location.pathname wont be availble.
+
     if (window.location.pathname == "/generative" && window.innerWidth > 1312) {
       document.getElementsByClassName("menuWrapper")[0].style.marginLeft =
-        "23%";
-      // document.getElementsByClassName("menuWrapper")[0].style.marginTop = "18%";
+        "23%"; //on desktop, bc there's only 2 squares instead of 4 they need to be in the center of the page
       console.log(window.innerWidth, "width");
     } else if (
       window.location.pathname == "/generative" &&
@@ -21,8 +22,7 @@ function PhotoMenu(props) {
       window.innerWidth < 767
     ) {
       document.getElementsByClassName("menuWrapper")[0].style.marginLeft =
-        "-7%";
-      // document.getElementsByClassName("menuWrapper")[0].style.marginTop = "18%";
+        "-7%"; //on mobile all the otions are stacked, so this just needs a bit of nudging to the left
       console.log(window.innerWidth, "width");
     } else if (
       window.location.pathname == "/generative" &&
