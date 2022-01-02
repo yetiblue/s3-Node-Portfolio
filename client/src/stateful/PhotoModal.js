@@ -92,21 +92,8 @@ class PhotoModal extends React.Component {
           />
           X
         </div>
-        {/* <div className="prevButton" onClick={this.previous}>
-          <img
-            src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/leftarrow.png"
-            width="50"
-            height="50"
-          />
-        </div>
-        <div className="nextButton" onClick={this.next}>
-          <img
-            className="rightArrow"
-            src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/rightarrow.png"
-            height="50"
-            widht="50"
-          />
-        </div> */}
+        <div className="prevButton" onClick={this.previous}></div>
+        <div className="nextButton" onClick={this.next}></div>
 
         <div className="content">{photoOrVideo}</div>
         <div onClick={this.closeModal} className="exit-click-region"></div>

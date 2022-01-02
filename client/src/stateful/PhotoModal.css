@@ -44,24 +44,7 @@
   height: 100%;
   width: 100%;
 }
-.prevButton {
-  z-index: 11;
-  margin-left: 4em;
-  position: absolute;
-  margin-top: 27.5em;
-}
-.nextButton {
-  position: absolute;
-  z-index: 10;
-  margin-left: 98em;
-  margin-top: 27.5em;
-}
-.nextButton:hover {
-  border: 0.2px solid white;
-}
-.prevButton:hover {
-  border: 0.2px solid white;
-}
+
 @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
   .modal {
     margin-top: -8em;
@@ -71,11 +54,26 @@
     width: 100%;
   }
   .nextButton {
-    display: none;
+    z-index: 11;
+
+    position: absolute;
+    margin-left: 16.3em;
+    margin-top: 7.8em;
+    background-color: rgba(255, 255, 255, 0);
+    width: 30vw;
+    border: none;
+    height: 68vh;
   }
-  /* .prevButton {
-    display: none;
-  } */
+  .prevButton {
+    z-index: 11;
+    /* margin-left: 4em; */
+    position: absolute;
+    margin-top: 7.8em;
+    background-color: rgba(255, 255, 255, 0);
+
+    width: 30vw;
+    height: 68vh;
+  }
   .exit {
     display: none;
   }
@@ -114,22 +112,38 @@
     width: 100%;
   }
   .nextButton {
-    display: none;
+    z-index: 11;
+
+    position: absolute;
+    margin-left: 38.3em;
+    margin-top: 12em;
+    background-color: rgba(255, 255, 255, 0);
+    width: 40vw;
+    /* border: none; */
+    height: 75vh;
   }
-  /* .prevButton {
-    display: none;
-  } */
+  .prevButton {
+    z-index: 11;
+    position: absolute;
+    margin-top: 12em;
+
+    background-color: rgba(65, 25, 25, 0);
+
+    width: 40vw;
+    height: 75vh;
+  }
   .exit {
     display: none;
   }
   .content {
-    margin-top: -15em;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 80%;
+    max-height: 70%;
     padding: 20px;
     z-index: 10;
+    margin-top: -3em;
+    margin-left: 4.2em;
+    /* display: grid; */
     display: flex;
-    align-items: center;
     justify-content: center;
   }
   .lightboxImage {
@@ -143,6 +157,66 @@
   .exit-click-region {
     height: 100%;
     width: 100%;
-    margin-top: -52em;
+    margin-top: -48em;
+    /* background-color: white; */
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 1) {
+  .modal {
+    margin-top: -8em;
+    position: fixed;
+    background-color: rgb(5, 5, 5);
+    height: 110vh;
+    max-width: 100%;
+  }
+  .nextButton {
+    z-index: 11;
+
+    position: absolute;
+    margin-left: 38.3em;
+    margin-top: 12em;
+    background-color: rgba(255, 255, 255, 0);
+    width: 40vw;
+    /* border: none; */
+    height: 75vh;
+  }
+  .prevButton {
+    z-index: 11;
+    position: absolute;
+    margin-top: 12em;
+
+    background-color: rgba(65, 25, 25, 0);
+
+    width: 40vw;
+    height: 75vh;
+  }
+  .exit {
+    display: none;
+  }
+  .content {
+    max-width: 80%;
+    max-height: 70%;
+    padding: 20px;
+    z-index: 10;
+    margin-top: -3em;
+    margin-left: 4.2em;
+    /* display: grid; */
+    display: flex;
+    justify-content: center;
+  }
+  .lightboxImage {
+    top: 20%;
+    margin-left: -5em;
+    z-index: 5;
+    position: relative;
+    object-fit: contain;
+    max-width: 100%;
+  }
+  .exit-click-region {
+    height: 90%;
+    width: 100%;
+    margin-top: -72em;
+    /* background-color: white; */
   }
 }

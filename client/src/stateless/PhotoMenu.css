@@ -16,6 +16,7 @@
 }
 .menuWrapper {
   width: 50%;
+  margin-left: -2em;
   margin-top: -2em;
   background-color: white;
   /* margin-left: 25%; */

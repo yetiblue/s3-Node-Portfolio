@@ -12,6 +12,8 @@ class GalleryPage extends React.Component {
   }
 
   async componentDidMount() {
+    document.body.style.overflow = "hidden";
+
     console.log(this.props.match.params.id, "param id");
     let axiosString =
       // `https://portfolio-timmy.herokuapp.com/getphotos/${this.props.match.params.id}` ||

@@ -32,11 +32,9 @@ function PhotoMenu(props) {
       document.getElementsByClassName("menuWrapper")[0].style.marginLeft =
         "23%";
       document.getElementsByClassName("menuWrapper")[0].style.marginTop = "18%";
-      console.log(window.innerWidth, "width");
     }
   }, []);
 
-  console.log(window.location.pathname);
   const listPhotos = props.photoList.map((photo) => (
     <li className="photoWrapper__li-menu">
       <Link className="photoLink" to={`/${photo.urlBase}/${photo.url}`}>
