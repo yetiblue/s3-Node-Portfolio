@@ -41,11 +41,12 @@ async function fetchMongo(genreName) {
   //loops thru array and uploads image src to MongoDB
   try {
     await constants.client.connect();
+    console.log("connected to mongo");
     let dbResults = await findObject(constants.client, genreName);
 
     return dbResults;
   } catch (e) {
-    console.log(e);
+    console.log(e, "did not connect to mongo client");
   } finally {
     await constants.client.close();
   }

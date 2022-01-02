@@ -11,7 +11,6 @@ class GalleryPage extends React.Component {
     };
   }
 
-  // }
   async componentDidMount() {
     console.log(this.props.match.params.id, "param id");
     let axiosString =
@@ -24,8 +23,8 @@ class GalleryPage extends React.Component {
       await serverStuff.forEach((photo) => photoArray.push(photo));
       console.log(photoArray);
       this.setState({ serverResponse: photoArray });
-    } catch {
-      console.log(error);
+    } catch (e) {
+      console.log(e, "did not fetch correctly with axios");
     }
   }
   render() {
