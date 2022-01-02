@@ -54,8 +54,8 @@ async function fetchMongo(genreName) {
 
 app.use(
   cors({
-    origin: `http://localhost:3000`,
-    // origin: "https://portfolio-timmy.herokuapp.com/",
+    // origin: `http://localhost:3000`,
+    origin: "https://portfolio-timmy.herokuapp.com/",
   })
 );
 app.use(express.static(path.join(__dirname))); //for s3 JS files
