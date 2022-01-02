@@ -18,6 +18,9 @@ class PhotoModal extends React.Component {
     this.setState({ currentCount: this.props.targetID }); //targetID is the ID of the image clicked in the gallery
     document.addEventListener("keydown", this.keyNav, false);
   }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.keyNav, "false");
+  }
   keyNav(event) {
     if (event.keyCode === 37) {
       this.previous();
@@ -89,7 +92,7 @@ class PhotoModal extends React.Component {
           />
           X
         </div>
-        <div className="prevButton" onClick={this.previous}>
+        {/* <div className="prevButton" onClick={this.previous}>
           <img
             src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/leftarrow.png"
             width="50"
@@ -103,7 +106,7 @@ class PhotoModal extends React.Component {
             height="50"
             widht="50"
           />
-        </div>
+        </div> */}
 
         <div className="content">{photoOrVideo}</div>
         <div onClick={this.closeModal} className="exit-click-region"></div>

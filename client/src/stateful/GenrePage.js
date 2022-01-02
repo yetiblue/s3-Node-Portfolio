@@ -45,7 +45,7 @@ class GenreItems extends React.Component {
           urlBase: "photography",
 
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC09563.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/landscape/DSC09563.jpg",
         },
 
         {
@@ -55,7 +55,7 @@ class GenreItems extends React.Component {
           urlBase: "photography",
 
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC09598.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/travel/DSC09598.jpg",
         },
         {
           id: 1,
@@ -64,7 +64,7 @@ class GenreItems extends React.Component {
           urlBase: "photography",
 
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC01395+(1).jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/pastel/DSC01395+(1).jpg",
         },
       ],
     };
