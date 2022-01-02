@@ -58,8 +58,7 @@ app.use(
   })
 );
 app.use(express.static(path.join(__dirname))); //for s3 JS files
-// console.log(path.join(__dirname + "../"));
-
+app.use(express.static(path.join(__dirname, "client", "build")));
 app.get("/getPhotos/:id", (req, res, err) => {
   let id = req.params.id;
   console.log(id, "req id");
@@ -89,7 +88,10 @@ app.post("/uploadphotos", upload.array("files", 70), async (req, res, err) => {
 app.get("/", (req, res) => {
   res.send("Hello from Express!");
 });
-
-app.listen(process.env.PORT || 4000, () => {
-  console.log(`Example app listening at http://localhost:${4000}`);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
