@@ -14,10 +14,11 @@ class GalleryPage extends React.Component {
   // }
   async componentDidMount() {
     console.log(this.props.match.params.id, "param id");
+    let axiosString =
+      `${process.env.PORT}/getphotos/${this.props.match.params.id}` ||
+      `http://localhost:4000/getphotos/${this.props.match.params.id}`;
     try {
-      const response = await axios.get(
-        `http://localhost:4000/getphotos/${this.props.match.params.id}`
-      ); //ugly temp test to see if i can get the param to send to mongo for querying,
+      const response = await axios.get(axiosString); //ugly temp test to see if i can get the param to send to mongo for querying,
       let photoArray = [];
       const serverStuff = response.data;
       await serverStuff.forEach((photo) => photoArray.push(photo));
