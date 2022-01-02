@@ -25,7 +25,7 @@ class GalleryPage extends React.Component {
       console.log(photoArray);
       this.setState({ serverResponse: photoArray });
     } catch {
-      console.log("error");
+      console.log(error);
     }
   }
   render() {
