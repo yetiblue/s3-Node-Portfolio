@@ -8,7 +8,6 @@ import axios from "axios";
 class GenreItems extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props, "thsprops");
     this.state = {
       generativeItems: [
         {
@@ -71,8 +70,12 @@ class GenreItems extends React.Component {
   }
 
   // }
+  componentDidMount() {
+    document.body.style.overflow = "visible";
+  }
 
   render() {
+    let allowScroll = true;
     let displayMenu;
     let isGenerative = this.props.photoOrGenerative;
     if (!isGenerative) {
@@ -82,7 +85,7 @@ class GenreItems extends React.Component {
     }
     return (
       <div>
-        <Header />
+        <Header allowScroll={allowScroll} />
         {displayMenu}
       </div>
     );

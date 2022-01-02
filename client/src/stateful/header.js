@@ -10,11 +10,16 @@ import {
 } from "react-router-dom";
 
 class Header extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { showSidebar: false };
   }
+  // componentDidMount() {
 
+  // }
+  async navigateAway() {
+    await this.setState({ showSidebar: !this.state.showSidebar });
+  }
   async openSidebar() {
     await this.setState({ showSidebar: !this.state.showSidebar }); //setState makes a request and isn't instant
     console.log("called", this.state.showSidebar);
@@ -63,14 +68,14 @@ class Header extends React.Component {
               Work ▾
               <li className="dropdown__li">
                 <Link
-                  onClick={this.openSidebar.bind(this)}
+                  onClick={this.navigateAway.bind(this)}
                   className="dropdown__item"
                   to="/photography"
                 >
                   Photography
                 </Link>
                 <Link
-                  onClick={this.openSidebar.bind(this)}
+                  onClick={this.navigateAway.bind(this)}
                   className="dropdown__item"
                   to="/generative"
                 >
