@@ -4,7 +4,6 @@
   box-sizing: border-box;
   padding-right: 3em;
   max-height: 100%;
-  background-color: white;
 }
 
 .photoWrapper__li {
@@ -21,7 +20,7 @@
 
 img {
   max-height: 100%;
-  max-width: 100%;
+  min-width: 100%;
   object-fit: cover;
   vertical-align: bottom;
 }
