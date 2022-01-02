@@ -18,12 +18,9 @@ body {
 .submit-button:hover {
   background-color: #45a049;
 }
-/* .submit-wrapper {
-  border: 1px solid white;
-} */
-/* .upload-button{
-
-} */
+.wrapper {
+  background-color: black;
+}
 .drop-area {
   color: white;
   border: 5px dashed #ccc;

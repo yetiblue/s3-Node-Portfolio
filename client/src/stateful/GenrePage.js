@@ -17,7 +17,7 @@ class GenreItems extends React.Component {
 
           url: "stills",
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC00123.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/static/Noise.png",
         },
 
         {
@@ -26,7 +26,7 @@ class GenreItems extends React.Component {
           urlBase: "generative",
 
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/pastel/facades.png",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/static/Screen+Shot+2021-11-09+at+12.55.35+PM.png",
         },
       ],
       menuItems: [
@@ -38,25 +38,6 @@ class GenreItems extends React.Component {
           src:
             "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC00123.jpg",
         },
-
-        {
-          id: 1,
-          text: "Pastel",
-          url: "pastel",
-          urlBase: "photography",
-
-          src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/pastel/facades.png",
-        },
-        {
-          id: 2,
-          text: "Travel",
-          url: "travel",
-          urlBase: "photography",
-
-          src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/travel/DSC09264.jpg",
-        },
         {
           id: 3,
           text: "Landscape",
@@ -64,7 +45,26 @@ class GenreItems extends React.Component {
           urlBase: "photography",
 
           src:
-            "https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC09563.jpg",
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/landscape/DSC09563.jpg",
+        },
+
+        {
+          id: 2,
+          text: "Travel",
+          url: "travel",
+          urlBase: "photography",
+
+          src:
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/travel/DSC09598.jpg",
+        },
+        {
+          id: 1,
+          text: "Pastel",
+          url: "pastel",
+          urlBase: "photography",
+
+          src:
+            "https://timmyportfolio.s3.us-east-2.amazonaws.com/pastel/DSC01395+(1).jpg",
         },
       ],
     };

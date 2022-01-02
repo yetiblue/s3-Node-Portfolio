@@ -1,10 +1,12 @@
 .content {
-  /* background-color: white; */
   margin-left: 10%;
   max-width: 80%;
   height: 90%;
   padding: 20px;
   z-index: 10;
+  /* display: grid; */
+  display: flex;
+  justify-content: center;
 }
 .exit-click-region {
   height: 90%;
@@ -27,9 +29,8 @@
 .lightboxImage {
   /* max-width: 100%;
   max-height: 100%; */
-  margin-left: -1em;
-  margin-top: 1.3em;
-  z-index: 5;
+  /* margin-left: -1em;
+  margin-top: 1.3em; */
   position: relative;
   object-fit: contain;
   max-width: 90%;
@@ -60,4 +61,88 @@
 }
 .prevButton:hover {
   border: 0.2px solid white;
+}
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .modal {
+    margin-top: -8em;
+    position: fixed;
+    background-color: rgb(5, 5, 5);
+    height: 110vh;
+    width: 100%;
+  }
+  .nextButton {
+    display: none;
+  }
+  /* .prevButton {
+    display: none;
+  } */
+  .exit {
+    display: none;
+  }
+  .content {
+    margin-top: -15em;
+    margin-left: -0.5em;
+    min-width: 100%;
+    height: 100%;
+    padding: 20px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightboxImage {
+    top: 20%;
+    margin-left: -1em;
+    z-index: 5;
+    position: relative;
+    object-fit: contain;
+    max-width: 100%;
+  }
+  .exit-click-region {
+    height: 100%;
+    width: 100%;
+    margin-top: -45em;
+    /* background-color: white; */
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .modal {
+    margin-top: -8em;
+    position: fixed;
+    background-color: rgb(5, 5, 5);
+    height: 110vh;
+    width: 100%;
+  }
+  .nextButton {
+    display: none;
+  }
+  /* .prevButton {
+    display: none;
+  } */
+  .exit {
+    display: none;
+  }
+  .content {
+    margin-top: -15em;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightboxImage {
+    top: 20%;
+    margin-left: -5em;
+    z-index: 5;
+    position: relative;
+    object-fit: contain;
+    max-width: 100%;
+  }
+  .exit-click-region {
+    height: 100%;
+    width: 100%;
+    margin-top: -52em;
+  }
 }

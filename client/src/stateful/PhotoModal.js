@@ -1,4 +1,6 @@
 import "./PhotoModal.css";
+import { withRouter } from "react-router";
+
 import React from "react";
 
 class PhotoModal extends React.Component {
@@ -10,9 +12,21 @@ class PhotoModal extends React.Component {
     this.previous = this.previous.bind(this);
     this.next = this.next.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.keyNav = this.keyNav.bind(this);
   }
   componentDidMount() {
     this.setState({ currentCount: this.props.targetID }); //targetID is the ID of the image clicked in the gallery
+    document.addEventListener("keydown", this.keyNav, false);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.keyNav, "false");
+  }
+  keyNav(event) {
+    if (event.keyCode === 37) {
+      this.previous();
+    } else {
+      this.next();
+    }
   }
   previous() {
     console.log("called previous", this.state.currentCount);
@@ -38,8 +52,32 @@ class PhotoModal extends React.Component {
     let [data, setData] = this.props.closeModal;
     setData(!data);
   }
+  onKeyPressed(e) {
+    console.log(e.keyCode);
+  }
+
   render() {
     let photoList = this.props.modalPhotos;
+    let photoOrVideo;
+    const id = this.props.match.params.id;
+    if (id == "videos") {
+      photoOrVideo = (
+        <video
+          autoPlay
+          loop
+          muted
+          className="lightboxImage"
+          src={photoList[this.state.currentCount].src}
+        />
+      );
+    } else {
+      photoOrVideo = (
+        <img
+          className="lightboxImage"
+          src={photoList[this.state.currentCount].src}
+        />
+      );
+    }
 
     console.log(this.state.currentCount, "current count");
     console.log(photoList[0].src, "photolist on modal comp");
@@ -54,7 +92,7 @@ class PhotoModal extends React.Component {
           />
           X
         </div>
-        <div className="prevButton" onClick={this.previous}>
+        {/* <div className="prevButton" onClick={this.previous}>
           <img
             src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/leftarrow.png"
             width="50"
@@ -68,17 +106,12 @@ class PhotoModal extends React.Component {
             height="50"
             widht="50"
           />
-        </div>
+        </div> */}
 
-        <div className="content">
-          <img
-            className="lightboxImage"
-            src={photoList[this.state.currentCount].src}
-          />
-        </div>
+        <div className="content">{photoOrVideo}</div>
         <div onClick={this.closeModal} className="exit-click-region"></div>
       </div>
     );
   }
 }
-export default PhotoModal;
+export default withRouter(PhotoModal);

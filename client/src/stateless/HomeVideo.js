@@ -13,7 +13,7 @@ function HomeVideo() {
       {/* <div className="videoContainer"> */}
       <video className="home-video" autoPlay muted loop>
         <source
-          src="https://timmyportfolio.s3.us-east-2.amazonaws.com/videos/background2.mov"
+          src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/background2.mp4"
           type="video/mp4"
         ></source>
       </video>
@@ -23,7 +23,7 @@ function HomeVideo() {
       </div>
       <ul className="bottom-nav">
         <li className="bottom-nav__link">
-          <Link className="bottom-nav__link__first" to="/about">
+          <Link className="bottom-nav__link" to="/about">
             About
           </Link>
         </li>
