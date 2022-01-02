@@ -3,7 +3,7 @@ dotenv.config();
 import fs from "fs";
 export const fileSystem = fs;
 import { MongoClient } from "mongodb";
-export const uri = `${process.env.MONGODB_URI || process.env.URI}`;
+export const uri = `${process.env.MONGO_URI || process.env.URI}`;
 const connection = new MongoClient(uri);
 export const client = connection;
 export const ID = `${process.env.ID}`;
