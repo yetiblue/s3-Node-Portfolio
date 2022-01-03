@@ -13,14 +13,17 @@ function About() {
         </div>
         <div className="columns__text">
           <p>
-            Timmy Zhou is a multi-disciplinary creator based in New York City.
-            He is mainly focused on developing fullstack web applications, such
-            as this portfolio site. In his free time, he dabbles artistically
-            with photography around the city, and more recently has started
-            producing generative art beginning with the 100 Days of Generative
-            Art Project. He is currently a Junior at NYU's Interactive Media
-            Arts program, and maintains a blog chronicling his adventures with
-            Ultrarunning, life lessons and software documentation.
+            Hi!<br></br> <br></br>I'm a multi-disciplinary creator based in New
+            York City. I study at NYU's Interactive Media Arts program, which
+            covers a wide range of topics such as coding, physical computing,
+            VR/AR, and UX. Out of those, I've decided to focus on web
+            development, and this portfolio site is my most recent personal
+            project. In my free time, I dabble artistically with photography
+            around the city, and have recently started producing generative art
+            beginning with my 100 Days of Generative Art Project.<br></br>
+            <br></br> I also maintain a blog chronicling my adventures with
+            ultrarunning, life lessons and software documentation. The link can
+            be found below!
           </p>
           <div className="columns-contact">
             <h3>Get in Touch</h3>
