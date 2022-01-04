@@ -1,4 +1,6 @@
 import "./PhotoMenu.css";
+import MetaTags from "react-meta-tags";
+
 import { useEffect } from "react";
 import {
   BrowserRouter as Router,
@@ -46,6 +48,9 @@ function PhotoMenu(props) {
 
   return (
     <div className="menu">
+      <MetaTags>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </MetaTags>
       <ul className="menuWrapper">{listPhotos}</ul>
     </div>
   );
