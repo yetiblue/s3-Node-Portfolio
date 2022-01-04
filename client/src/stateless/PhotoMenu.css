@@ -1,6 +1,6 @@
 .menu {
   background-color: white;
-  max-width: 100%;
+  /* max-width: 100%; */
   display: flex;
   justify-content: center;
 }
@@ -8,7 +8,7 @@
   margin-left: -2em;
   margin-top: -2em;
   /* padding: 1em; */
-  background-color: green;
+  background-color: white;
   display: grid;
   flex-wrap: wrap;
   box-sizing: border-box;
@@ -119,17 +119,19 @@ li {
     background-color: white;
     height: 70vh;
     width: 100%;
+    /* padding-bottom: 5em; */
     /* border: 1px solid white; */
   }
   .image {
-    max-height: 80%;
+    max-height: 70%;
   }
 }
 @media only screen and (min-width: 1360px) {
   .menuWrapper {
     margin-left: 0;
     margin-top: 1em;
-    grid-template-columns: 25% 25% 25% 25%;
+    background: white;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   .photoWrapper__li-menu {
     padding: 1em;

@@ -2,13 +2,13 @@
   max-height: 100%;
   margin-top: -2em;
   background-color: black;
+  display: flex;
+  justify-content: center;
 }
-.about-header {
-  margin: 2em;
-  padding-top: 2em;
-  margin-left: 7em;
-  color: white;
+.wrapper {
+  background-color: black;
 }
+
 .columns {
   display: grid;
   max-width: 80%;
@@ -30,10 +30,10 @@
   object-fit: contain;
   max-width: 100%;
   padding: 3em;
-  margin-top: -3em;
+  margin-top: 2em;
 }
 .columns__text {
-  margin-top: -3.5em;
+  margin-top: 1.5em;
   background-color: white;
   color: white;
   padding: 2em;
@@ -45,10 +45,7 @@
   color: white;
   /* text-decoration: none; */
 }
-@media (max-aspect-ratio: 1/1) and (max-width: 480px) {
-  .about-header {
-    margin: 1.7em;
-  }
+@media screen and (max-width: 600px) {
   .columns {
     margin-left: 0;
     grid-template-columns: 1fr;
@@ -63,23 +60,15 @@
     background-color: black;
   }
 }
-@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
   .columns {
-    margin-left: 6em;
+    margin-left: 0;
     grid-template-columns: 1fr;
   }
-  .about-header {
-    margin: 2em;
-    margin-left: 4.5em;
-  }
 }
-@media only screen and (min-device-width: 1024px) and (max-device-width: 1365px) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
   .columns {
     margin-left: 6em;
     grid-template-columns: 1fr 1fr;
-  }
-  .about-header {
-    margin: 2em;
-    margin-left: 4.5em;
   }
 }
