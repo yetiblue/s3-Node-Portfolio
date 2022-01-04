@@ -45,14 +45,14 @@ class Header extends React.Component {
         <div className={sidebar}>
           {" "}
           <ul className="sidebar__ul">
-            <li className="sidebar__li">
-              <button
-                onClick={this.openSidebar.bind(this)}
-                className="sidebar__button"
-              >
-                X
-              </button>
-            </li>
+            {/* <li className="sidebar__li"> */}
+            <button
+              onClick={this.openSidebar.bind(this)}
+              className="sidebar__button"
+            >
+              X
+            </button>
+            {/* </li> */}
             <li className="sidebar__li">
               <Link className="sidebar__link" to="/about">
                 About

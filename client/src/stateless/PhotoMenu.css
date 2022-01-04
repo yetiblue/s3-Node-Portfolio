@@ -20,7 +20,7 @@
 
 .photoText {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   top: -8em;
   margin-left: 0em;
   /* margin-top: -6.5em; */
