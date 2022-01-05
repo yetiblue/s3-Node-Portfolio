@@ -75,7 +75,6 @@ class GenreItems extends React.Component {
   }
 
   render() {
-    let allowScroll = true;
     let displayMenu;
     let isGenerative = this.props.photoOrGenerative;
     if (!isGenerative) {
@@ -85,7 +84,7 @@ class GenreItems extends React.Component {
     }
     return (
       <div>
-        <Header allowScroll={allowScroll} />
+        <Header />
         {displayMenu}
       </div>
     );

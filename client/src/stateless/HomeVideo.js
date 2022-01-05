@@ -13,7 +13,7 @@ function HomeVideo() {
       {/* <div className="videoContainer"> */}
       <video className="home-video" autoPlay muted loop>
         <source
-          src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/background2.mp4"
+          // src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/background2.mp4"
           type="video/mp4"
         ></source>
       </video>

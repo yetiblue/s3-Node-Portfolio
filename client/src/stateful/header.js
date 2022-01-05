@@ -54,7 +54,11 @@ class Header extends React.Component {
             </button>
             {/* </li> */}
             <li className="sidebar__li">
-              <Link className="sidebar__link" to="/about">
+              <Link
+                onClick={this.navigateAway.bind(this)}
+                className="sidebar__link"
+                to="/about"
+              >
                 About
               </Link>
             </li>
