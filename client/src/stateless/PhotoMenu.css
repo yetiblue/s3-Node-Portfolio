@@ -5,16 +5,17 @@
   justify-content: center;
 }
 .menuWrapper {
-  margin-left: -2em;
   margin-top: -2em;
   /* padding: 1em; */
   background-color: white;
-  display: grid;
+  display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
+  justify-content: center;
   /* padding-right: 3em;
   padding-top: 4em; */
   max-width: 100%;
+
   /* grid-template-columns: 25% 25% 25% 25%; */
 }
 
@@ -43,15 +44,13 @@ li {
 }
 
 .photoWrapper__li-menu {
-  margin-left: 2em;
+  /* margin-left: 2em; */
   margin-top: 2em;
   box-sizing: border-box;
   height: 80vh;
-  max-width: 100%;
+  max-width: 350px;
   flex-grow: none;
   list-style-type: none;
-
-  /* border: 1px solid white; */
 }
 
 .image {
@@ -92,8 +91,7 @@ li {
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
   .menuWrapper {
     margin-top: 1em;
-    grid-template-columns: 400px;
-    background-color: green;
+    max-width: 400px;
   }
   .photoWrapper__li-menu {
     margin-top: 0;
@@ -108,10 +106,10 @@ li {
     max-width: 100%;
   } */
 }
-@media only screen and (min-width: 1024px) and (max-width: 1360px) {
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
   .menuWrapper {
     margin-top: 1em;
-    grid-template-columns: 500px;
+    max-width: 500px;
   }
   .photoWrapper__li-menu {
     margin-top: 0;
@@ -126,21 +124,23 @@ li {
     max-height: 70%;
   }
 }
-@media only screen and (min-width: 1360px) {
+@media only screen and (min-width: 1366px) {
   .menuWrapper {
     margin-left: 0;
     margin-top: 1em;
     background: white;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   }
   .photoWrapper__li-menu {
-    padding: 1em;
+    /* padding: 1em; */
     box-sizing: border-box;
     margin-top: 0;
     margin-left: 0em;
     background-color: white;
     height: 100vh;
-    width: 100%;
+    max-width: 325px;
+
+    /* max-width: 350px; */
     /* border: 1px solid white; */
   }
   .image {
@@ -150,6 +150,7 @@ li {
     width: 100%;
   }
 }
+
 /* @media (max-width: 560px) {
   .menu {
     border: 1px solid white;
