@@ -15,7 +15,7 @@ class GalleryPage extends React.Component {
     document.body.style.overflow = "hidden";
 
     console.log(this.props.match.params.id, "param id");
-    let axiosString = `http://timmyzhou.art/getphotos/${this.props.match.params.id}`;
+    let axiosString = `https://timmyzhou.art/getphotos/${this.props.match.params.id}`;
     // `http://localhost:4000/getphotos/${this.props.match.params.id}`;
     try {
       const response = await axios.get(axiosString); //ugly temp test to see if i can get the param to send to mongo for querying,
