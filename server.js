@@ -56,7 +56,7 @@ async function fetchMongo(genreName) {
 app.use(
   cors({
     // origin: `http://localhost:3000`,
-    origin: "https://timmyzhou.art/",
+    origin: "https://timmyzhou.art",
   })
 );
 app.use(express.static(path.join(__dirname))); //for s3 JS files
