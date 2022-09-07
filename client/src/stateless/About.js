@@ -1,16 +1,20 @@
 import "./About.css";
+import { useParallax } from "react-scroll-parallax";
+
 function About() {
+  const { ref } = useParallax < HTMLDivElement > { speed: -100 };
   return (
     <div className="wrapper">
       <div className="about-content">
-        <div className="columns">
-          <div className="columns__portrait">
-            <img
-              className="columns__portrait-image"
-              // src="https://timmyportfolio.s3.us-east-2.amazonaws.com/urban/DSC09563.jpg"
-              src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC00129-2.jpg"
-            />
-          </div>
+        <div className="columns__portrait">
+          <img
+            className="columns__portrait-image"
+            src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/DSC00129-2.jpg"
+          />
+        </div>
+
+        <div ref={ref} className="columns">
+          <div></div>
           <div className="columns__text">
             <p>
               Hi!<br></br> <br></br>I'm a multi-disciplinary creator based in

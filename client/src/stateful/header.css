@@ -86,6 +86,7 @@
   .header__site-title {
     font-size: 0.8em;
     padding: 0;
+    font-family: "Monaco";
   }
   .hamburger {
     display: block;

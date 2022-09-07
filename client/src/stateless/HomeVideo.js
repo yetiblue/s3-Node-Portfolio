@@ -1,4 +1,5 @@
 import "./HomeVideo.css";
+import HomeSketch from "./HomeSketch";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,16 +12,12 @@ function HomeVideo() {
   return (
     <div className="home-content">
       {/* <div className="videoContainer"> */}
-      <video className="home-video" autoPlay muted loop>
-        <source
-          // src="https://timmyportfolio.s3.us-east-2.amazonaws.com/static/background2.mp4"
-          type="video/mp4"
-        ></source>
-      </video>
       {/* </div> */}
       <div className="header__site-title-home">
         <h1 className="home__name">Timmy Zhou</h1>
       </div>
+      <HomeSketch></HomeSketch>
+
       <ul className="bottom-nav">
         <li className="bottom-nav__link">
           <Link className="bottom-nav__link" to="/about">

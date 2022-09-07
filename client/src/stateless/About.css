@@ -1,20 +1,24 @@
 .about-content {
   max-height: 100%;
   margin-top: -2em;
-  background-color: black;
+  background-color: white;
   display: flex;
   justify-content: center;
+  font-family: "helvetica neue";
 }
 .wrapper {
-  background-color: black;
+  background-color: white;
 }
 
 .columns {
   display: grid;
-  max-width: 80%;
-  margin-left: 11em;
+  max-width: 100%;
+  max-height: 100vh;
+  overflow-y: scroll;
+  z-index: 5;
+
   /* max-height: 100%; */
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.8fr;
 }
 .columns-contact__text {
   font-size: 0.8em;
@@ -22,24 +26,26 @@
   text-decoration: none;
 }
 .columns__portrait {
-  background-color: white;
-  max-width: 80%;
-  background-color: black;
+  position: absolute;
+  left: 0;
+  margin-top: 1em;
+  margin-left: 4em;
 }
 .columns__portrait-image {
-  object-fit: contain;
-  max-width: 100%;
-  padding: 3em;
-  margin-top: 2em;
+  max-height: 80vh;
+  z-index: 1;
 }
 .columns__text {
-  margin-top: 1.5em;
+  margin-top: -0.5em;
   background-color: white;
   color: white;
   padding: 2em;
-  font-size: 1.1em;
-  line-height: 2.2;
-  background-color: black;
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 1.5;
+  color: black;
+
+  /* background-color: black; */
 }
 .social-links {
   color: white;

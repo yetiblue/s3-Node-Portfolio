@@ -6,7 +6,6 @@ function HomePage() {
   return (
     <div>
       <HomeVideo />
-      {/* <Header /> */}
     </div>
   );
 }
